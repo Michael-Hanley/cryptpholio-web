@@ -13,6 +13,7 @@
     </div>
     <div class='marketCap'>
         <div>Market Cap</div>
-        <div>{{coin.market_cap_usd | currency}}</div>
+        <div>${{coin.market_cap_usd | number: '1.0-0'}}</div>
+        <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{market_cap_btc  | number: '1.0-0'}}</div>
     </div>
 </div>
