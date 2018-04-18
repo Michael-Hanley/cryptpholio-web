@@ -1,0 +1,18 @@
+<div class="container mat-elevation-z8">
+    <span class="logo"><img src="{{imageUrl}}{{coin.image_url}}" width="50" height="50"></span>
+    <div>
+        <div class="nameSymbol">
+            <span>{{coin.name}}</span>
+            <span>({{coin.symbol}})</span>
+        </div>
+        <div class="marketPrice">
+            <div>{{coin.usd_price | currency}}</div>
+            <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.btc_price | number:'.2-9'}}</div>   
+            
+        </div>
+    </div>
+    <div class='marketCap'>
+        <div>Market Cap</div>
+        <div>{{coin.market_cap_usd | currency}}</div>
+    </div>
+</div>

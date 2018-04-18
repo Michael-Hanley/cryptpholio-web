@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    /* flex-direction: column; */
+    width: 100%;
+    min-width: 350px;
+    max-width: 1200px;
+    overflow: auto;
+    /* justify-content: center; */
+}
+.logo {
+    /* display: inline;     */
+    margin: 10px;
+    /* float: left; */
+}
+.nameSymbol {
+    margin-top: 15px;
+}
+.marketPrice {
+    /* float: right; */
+    margin-right: 10px;
+    
+}
+.marketCap {
+    margin-top: 15px;
+    margin-right: 10px;    
+    margin-left: auto;
+    /* justify-content: flex-end; */
+}
+.icon {
+    width: 12px;
+    height: 12px;
+}

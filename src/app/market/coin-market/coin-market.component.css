@@ -1,0 +1,41 @@
+.mat-header-cell.mat-sort-header-sorted {
+  color: black;
+}
+.mat-table {
+  overflow: auto;
+  min-width: 875px;
+}
+.search-box {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  max-width: 1200px;
+  overflow: auto;
+  justify-content: center;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-column-icon {
+  flex: 0 0 45px;
+}
+.mat-column-symbol {
+  flex: 0 0 90px;
+}
+.mat-column-btc_price {
+  flex: 0 0 115px;
+}
+.mat-column-usd_price {
+  flex: 0 0 115px;
+}
+.spinner-margin {
+  margin: 0 10px;
+}
+.column {
+  cursor: pointer;
+}
