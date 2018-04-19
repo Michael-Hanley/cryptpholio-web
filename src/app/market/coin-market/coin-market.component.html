@@ -1,9 +1,10 @@
-<div class="container mat-elevation-z8">
+<div class="container">
+    <button mat-raised-button (click)="getCoins()">refresh</button>
+
   <div class="search-box">
       <mat-form-field>
         <input type="text" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
-      <button mat-raised-button (click)="getCoins()">refresh</button>
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="icon" >
@@ -27,7 +28,7 @@
 
     <ng-container matColumnDef="btc_price">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Price BTC </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.btc_price | number:'.2-9'}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> <mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.btc_price | number:'.2-9'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="market_cap_usd">

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { CoinService } from '../../services/coin-service.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
+import {MatIconRegistry} from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-coin-market',
@@ -13,7 +15,12 @@ export class CoinMarketComponent implements OnInit {
   columnsToDisplay = ['icon', 'name', 'symbol', 'usd_price', 'btc_price', 'market_cap_usd', 'available_supply'];
   imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Element>(this.coins);
-  constructor(private coinService: CoinService, private router: Router) { }
+  constructor(private coinService: CoinService, private router: Router,
+    iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'btc',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
+   }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -23,7 +30,6 @@ export class CoinMarketComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
   coinView(coin) {
-    console.log(coin);
     this.router.navigate(['/coin'], {queryParams: coin});
   }
   getCoins() {

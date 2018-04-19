@@ -10,12 +10,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CoinMarketComponent } from './market/coin-market/coin-market.component';
 import { CoinComponent } from './market/coin/coin.component';
+import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
+
+import { ChartModule } from 'angular-highcharts';
+
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const appRoutes: Routes = [
   {
@@ -28,9 +34,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CoinMarketComponent,
-    CoinComponent
+    CoinComponent,
+    MainChartComponent
   ],
   imports: [
+    FlexLayoutModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -38,13 +46,15 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
+    ChartModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [CoinService],
   bootstrap: [AppComponent]

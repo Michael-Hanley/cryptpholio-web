@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CoinServiceService } from './coin-service.service';
+import { CoinService } from './coin-service.service';
 
 describe('CoinServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CoinServiceService]
+      providers: [CoinService]
     });
   });
 
-  it('should be created', inject([CoinServiceService], (service: CoinServiceService) => {
+  it('should be created', inject([CoinService], (service: CoinService) => {
     expect(service).toBeTruthy();
   }));
 });

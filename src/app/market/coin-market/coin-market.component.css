@@ -13,9 +13,10 @@
   display: flex;
   flex-direction: column;
   min-width: 350px;
-  max-width: 1200px;
+  max-width: 100%;
   overflow: auto;
-  justify-content: center;
+  height: 100vh;
+
 }
 .mat-form-field {
   font-size: 14px;
@@ -38,4 +39,8 @@
 }
 .column {
   cursor: pointer;
+}
+.icon {
+  width: 12px;
+  height: 12px;
 }
