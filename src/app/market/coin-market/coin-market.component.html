@@ -1,6 +1,4 @@
 <div class="container">
-    <button mat-raised-button (click)="getCoins()">refresh</button>
-
   <div class="search-box">
       <mat-form-field>
         <input type="text" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -45,8 +43,10 @@
     <mat-row *matRowDef="let coins; columns: columnsToDisplay"></mat-row>
   </mat-table>
   <mat-paginator #paginator
+    (page)="updateUrl($event)"
+    [pageIndex] = "this.pageIndex"
     [length]="100"
-    [pageSize]="10"
+    [pageSize]="this.pageSize"
     [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </div>

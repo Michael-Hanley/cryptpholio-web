@@ -7,6 +7,7 @@
 }
 .search-box {
   min-height: 64px;
+  width: 200px;
   padding: 8px 24px 0;
 }
 .container {
@@ -15,8 +16,6 @@
   min-width: 350px;
   max-width: 100%;
   overflow: auto;
-  height: 100vh;
-
 }
 .mat-form-field {
   font-size: 14px;

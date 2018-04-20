@@ -1,6 +1,6 @@
 <div class="container">
   <div class="coinInfo">
-    <span class="logo"><img src="{{imageUrl}}{{coin.image_url}}" width="50" height="50"></span>
+    <span class="logo"><img src="{{imageUrl}}{{coin.image_url}}" width="67" height="67"></span>
     <div>
         <div class="nameSymbol">
             <span>{{coin.name}}</span>
@@ -21,6 +21,7 @@
   <br>
   <div class='chart'>
     <app-main-chart
+        [name]='coin.name'
         [symbol]='coin.symbol'
         [supply]='coin.total_supply'>
     </app-main-chart>

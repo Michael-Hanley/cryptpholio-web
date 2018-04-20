@@ -17,12 +17,9 @@ export class CoinComponent implements OnInit {
     sanitizer: DomSanitizer) {
     this.route.queryParams.subscribe(
     params => {
-         console.log(params);
          this.coin = params;
          this.current_btc_price = this.coin.usd_price / this.coin.btc_price;
-         console.log(this.current_btc_price);
          this.market_cap_btc = this.coin.market_cap_usd / this.current_btc_price;
-         console.log(this.market_cap_btc);
     });
     iconRegistry.addSvgIcon(
       'btc',

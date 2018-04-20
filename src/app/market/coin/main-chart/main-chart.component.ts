@@ -10,6 +10,7 @@ import { Chart } from 'angular-highcharts';
 export class MainChartComponent implements OnInit, OnDestroy {
   @Input() symbol;
   @Input() supply;
+  @Input() name;
   history;
   chartHistory;
   chart;
@@ -44,7 +45,7 @@ export class MainChartComponent implements OnInit, OnDestroy {
             type: 'line'
           },
           title: {
-            text: 'Linechart'
+            text: this.name
           },
           xAxis: {
             type: 'datetime',
@@ -54,6 +55,9 @@ export class MainChartComponent implements OnInit, OnDestroy {
             labels: {
               format: '{value:%e-%b-%Y %H:%M:%S}'
             }
+          },
+          yAxis: {
+            title: {text: 'Market Cap'}
           },
           credits: {
             enabled: false
