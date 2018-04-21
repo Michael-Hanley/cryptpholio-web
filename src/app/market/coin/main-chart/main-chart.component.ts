@@ -15,63 +15,74 @@ export class MainChartComponent implements OnInit, OnDestroy {
   chartHistory;
   chart;
   ready = false;
+  timelineOptions = ['1h', '24h', '7d', '1m', '6m', '1y'];
+  currentTimeline = '1h';
   constructor(private coinService: CoinService) {
   }
   onSelect(event) {
     console.log(event);
   }
-  ngOnInit() {
-    this.coinService.getHistory(this.symbol)
-      .subscribe(hist => {
-        this.history = hist;
-        const market_cap_usd_arr = [];
-        const date_arr = [];
-        this. chartHistory = [];
-        this.history.Data.forEach(time => {
-          const market_cap_usd = time.high * this.supply;
-          const utcSeconds = time.time;
-          const date = new Date(0);
-          date.setUTCSeconds(utcSeconds);
-          // const market_cap_usd = {'y': date, 'x': time['market_cap_usd']};
-          // market_cap_usd_arr.push(market_cap_usd);
-          market_cap_usd_arr.push({'y': market_cap_usd, 'x': date});
-          // date_arr.push(date);
-        });
-        // this.chartHistory['market_cap_usd'] = market_cap_usd_arr;
-        this.chartHistory = market_cap_usd_arr;
-        // this.chartHistory['dates'] = date_arr;
-        this.chart = new Chart({
-          chart: {
-            type: 'line'
-          },
-          title: {
-            text: this.name
-          },
-          xAxis: {
-            type: 'datetime',
-            title: {
-              text: 'Date'
-            },
-            labels: {
-              format: '{value:%e-%b-%Y %H:%M:%S}'
-            }
-          },
-          yAxis: {
-            title: {text: 'Market Cap'}
-          },
-          credits: {
-            enabled: false
-          },
-          series: [{
-            name: this.symbol,
-            data: this.chartHistory
-          }]
-        });
-        this.ready = true;
+  getCoinHistory() {
+    this.coinService.getHistory(this.symbol, this.currentTimeline)
+    .subscribe(hist => {
+      console.log(hist);
+      this.history = hist;
+      const market_cap_usd_arr = [];
+      const date_arr = [];
+      this. chartHistory = [];
+      this.history.Data.forEach(time => {
+        const market_cap_usd = time.high * this.supply;
+        const utcSeconds = time.time;
+        const date = new Date(0);
+        date.setUTCSeconds(utcSeconds);
+        // const market_cap_usd = {'y': date, 'x': time['market_cap_usd']};
+        // market_cap_usd_arr.push(market_cap_usd);
+        market_cap_usd_arr.push({'y': market_cap_usd, 'x': date});
+        // date_arr.push(date);
       });
-    }
-    ngOnDestroy() {
+      // this.chartHistory['market_cap_usd'] = market_cap_usd_arr;
+      this.chartHistory = market_cap_usd_arr;
+      // this.chartHistory['dates'] = date_arr;
+      this.chart = new Chart({
+        chart: {
+          type: 'line'
+        },
+        title: {
+          text: this.name
+        },
+        xAxis: {
+          type: 'datetime',
+          title: {
+            text: 'Date'
+          },
+          labels: {
+            format: '{value:%e-%b-%Y %H:%M:%S}'
+          }
+        },
+        yAxis: {
+          title: {text: 'Market Cap'}
+        },
+        credits: {
+          enabled: false
+        },
+        plotOptions: {
+          series: {
+              turboThreshold: 5000
+          }
+        },
+        series: [{
+          name: this.symbol,
+          data: this.chartHistory
+        }]
+      });
+      this.ready = true;
+    });
+  }
+  ngOnInit() {
+    this.getCoinHistory();
+  }
+  ngOnDestroy() {
       this.chart = null;
-    }
+  }
 }
 
