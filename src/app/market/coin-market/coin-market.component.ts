@@ -13,7 +13,16 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class CoinMarketComponent implements OnInit {
   coins;
   timer;
-  columnsToDisplay = ['icon', 'name', 'symbol', 'usd_price', 'btc_price', 'market_cap_usd', 'available_supply'];
+  columnsToDisplay = [
+    'icon',
+    'name',
+    'symbol',
+    'usd_price',
+    'btc_price',
+    'market_cap_usd',
+    'percent_change_24h',
+    'available_supply'
+  ];
   imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Element>(this.coins);
   pageIndex;
@@ -29,7 +38,7 @@ export class CoinMarketComponent implements OnInit {
 
       this.route.queryParams.subscribe(
         params => {
-          if (!params.pageSize){
+          if (!params.pageSize) {
             this.pageSize = 10;
           } else {
           this.pageIndex = params.pageIndex;
@@ -80,6 +89,9 @@ export interface Element {
   btc_price: number;
   usd_price: string;
   market_cap_usd: number;
+  percent_change_1h: number;
+  percent_change_24h: number;
+  percent_change_7d: number;
   image_url: string;
   available_supply: number;
   total_supply: number;

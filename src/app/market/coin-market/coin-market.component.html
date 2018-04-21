@@ -33,6 +33,12 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Market Cap USD </mat-header-cell>
       <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.market_cap_usd | number:'.2-9'}} </mat-cell>
     </ng-container>
+    
+    <ng-container matColumnDef="percent_change_24h">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Percent Change </mat-header-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> {{coin.percent_change_24h | number}}% </mat-cell>
+    </ng-container>
+    
 
     <ng-container matColumnDef="available_supply">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Available Supply </mat-header-cell>
