@@ -6,16 +6,18 @@
   min-width: 875px;
 }
 .search-box {
-  min-height: 64px;
   width: 200px;
-  padding: 8px 24px 0;
+  padding: 8px 24px;
+  float: left;
 }
 .container {
   display: flex;
   flex-direction: column;
   min-width: 350px;
   max-width: 100%;
+  max-height: 700px;
   overflow: auto;
+  margin-bottom: 20px;
 }
 .mat-form-field {
   font-size: 14px;
@@ -42,4 +44,10 @@
 .icon {
   width: 12px;
   height: 12px;
+}
+.global_market_cap {
+  width: 500px;
+  padding: 8px 24px;  
+  float: right;
+  text-align: right;
 }

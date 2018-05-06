@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-coin',
@@ -14,7 +15,7 @@ export class CoinComponent implements OnInit {
   market_cap_btc;
   imageUrl = 'https://www.cryptocompare.com';
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer) {
+    sanitizer: DomSanitizer, public location: Location) {
     this.route.queryParams.subscribe(
     params => {
          this.coin = params;
@@ -26,6 +27,9 @@ export class CoinComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
   }
 
+  backToMarker() {
+    this.location.back();
+  }
   ngOnInit() {
   }
 

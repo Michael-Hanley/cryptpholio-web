@@ -28,10 +28,12 @@ export class CoinMarketComponent implements OnInit {
   pageIndex;
   pageSize = 10;
   page;
+  globalMarketCap: any;
   constructor(private coinService: CoinService, private router: Router,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute) {
     this.getCoins();
+    this.getGlobalMarketCap();
     iconRegistry.addSvgIcon(
       'btc',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
@@ -68,6 +70,12 @@ export class CoinMarketComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.syncCoins();
     });
+  }
+  getGlobalMarketCap() {
+    this.coinService.getGlobalMarketCap()
+      .subscribe(res => {
+        this.globalMarketCap = res[0];
+      });
   }
   syncCoins() {
     this.timer = setTimeout(() => this.getCoins(), 60000);

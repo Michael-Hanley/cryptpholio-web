@@ -1,8 +1,11 @@
 <div class="container">
-  <div class="search-box">
+  <div>
+    <span class="global_market_cap">Global Market Cap: ${{ globalMarketCap?.global_market_cap | number: '.2' }}</span>    
+    <span class="search-box">
       <mat-form-field>
         <input type="text" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
+    </span>
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="icon" >

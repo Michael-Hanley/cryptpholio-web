@@ -16,6 +16,10 @@ export class CoinService {
     const url = 'http://localhost:3000/market';
     return this.http.get(url);
   }
+  getGlobalMarketCap() {
+    const url = 'http://localhost:3000/market/global';
+    return this.http.get(url);
+  }
   getHistory(coin, timeline) {
     let url;
     if (coin === 'MIOTA') {
