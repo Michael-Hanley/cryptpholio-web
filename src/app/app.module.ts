@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -58,7 +59,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSidenavModule
   ],
   providers: [CoinService],
   bootstrap: [AppComponent]

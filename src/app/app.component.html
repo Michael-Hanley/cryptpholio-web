@@ -1,6 +1,22 @@
 <div class="container">
-  <mat-toolbar color="primary">My App</mat-toolbar>
-  <div class="routeContainer mat-elevation-z8">
-    <router-outlet></router-outlet>    
-  </div>
-</div>
+  <mat-toolbar color="primary">
+      <button type="button" mat-icon-button class="menuIcon" (click)="drawer.toggle(); isCollapsed = !isCollapsed">
+          <mat-icon [@iconChange]="isCollapsed">menu</mat-icon>
+      </button>
+      <span>Cryptpholio</span>
+  </mat-toolbar>
+  
+  <mat-drawer-container class="sideNav_container"
+    (backdropClick)="isCollapsed = !isCollapsed">
+    <mat-drawer #drawer mode="over">
+      <p>Auto-resizing sidenav</p>
+      <button>Market</button>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+      <div class="routeContainer mat-elevation-z5">
+          <router-outlet></router-outlet>    
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>  
