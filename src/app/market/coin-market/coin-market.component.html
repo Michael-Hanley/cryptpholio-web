@@ -24,7 +24,7 @@
 
     <ng-container matColumnDef="usd_price">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Price USD </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.usd_price | number:'.2-9'}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.usd_price | number:'1.2-2'}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="btc_price">
