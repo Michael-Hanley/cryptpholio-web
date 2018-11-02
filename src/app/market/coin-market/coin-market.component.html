@@ -14,38 +14,38 @@
     </ng-container>
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> {{coin.name}}</mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.name}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="symbol">
       <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> {{coin.symbol}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.symbol}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="usd_price">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Price USD </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.usd_price | number:'1.2-2'}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>${{coin.usd_price | number:'1.2-2'}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="btc_price">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Price BTC </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> <mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.btc_price | number:'.2-9'}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> <mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.btc_price | number:'.2-9'}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="market_cap_usd">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Market Cap USD </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> ${{coin.market_cap_usd | number:'.2-9'}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>${{coin.market_cap_usd | number:'.2-9'}}</mat-cell>
     </ng-container>
     
     <ng-container matColumnDef="percent_change_24h">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Percent Change </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> {{coin.percent_change_24h | number}}% </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.percent_change_24h | number}}%</mat-cell>
     </ng-container>
     
 
     <ng-container matColumnDef="available_supply">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Available Supply </mat-header-cell>
-      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> {{coin.available_supply}} </mat-cell>
+      <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.available_supply}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
