@@ -63,7 +63,6 @@ export class CoinMarketComponent implements OnInit {
   getCoins() {
     this.coinService.getCoins()
     .subscribe(coins => {
-      console.log(coins);
       this.coins = coins;
       this.dataSource = new MatTableDataSource<Element>(this.coins);
       this.dataSource.paginator = this.paginator;

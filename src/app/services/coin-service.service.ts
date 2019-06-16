@@ -22,9 +22,6 @@ export class CoinService {
   }
   getHistory(coin, timeline) {
     let url;
-    if (coin === 'MIOTA') {
-      coin = 'IOT';
-    }
     if (timeline === '7d') {
       url = `https://min-api.cryptocompare.com/data/histohour?fsym=${coin}&tsym=USD&limit=168&aggregate=1&e=CCCAGG`;
     } else if (timeline === '24h') {

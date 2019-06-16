@@ -25,7 +25,6 @@ export class MainChartComponent implements OnInit, OnDestroy {
   getCoinHistory() {
     this.coinService.getHistory(this.symbol, this.currentTimeline)
     .subscribe(hist => {
-      console.log(hist);
       this.history = hist;
       const market_cap_usd_arr = [];
       const date_arr = [];
