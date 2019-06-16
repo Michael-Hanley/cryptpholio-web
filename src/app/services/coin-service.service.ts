@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CoinService {
+  api_url = environment.api_url;
 
-  constructor(private http: HttpClient) {
-    // this.getFullCoinList();
-  }
+  constructor(private http: HttpClient) {}
 
   getCoinsByMarketCap() {
     const url = `https://api.coinmarketcap.com/v1/ticker/?limit=100`;
     return this.http.get(url);
   }
   getCoins() {
-    const url = 'http://localhost:3000/market';
+    const url = this.api_url + '/market';
     return this.http.get(url);
   }
   getGlobalMarketCap() {
-    const url = 'http://localhost:3000/market/global';
+    const url = this.api_url + '/market/global';
     return this.http.get(url);
   }
   getHistory(coin, timeline) {
