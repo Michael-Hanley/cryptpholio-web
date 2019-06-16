@@ -15,8 +15,8 @@ export class MainChartComponent implements OnInit, OnDestroy {
   chartHistory;
   chart;
   ready = false;
-  timelineOptions = ['1h', '24h', '7d', '1m', '6m', '1y'];
-  currentTimeline = '1h';
+  timelineOptions = ['1h', '24h', '7d', '1m', '6m', '1y', '3y'];
+  currentTimeline = '3y';
   constructor(private coinService: CoinService) {
   }
   onSelect(event) {

@@ -37,6 +37,8 @@ export class CoinService {
       url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=183&aggregate=1&e=CCCAGG`;
     } else if (timeline === '1y') {
       url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=365&aggregate=1&e=CCCAGG`;
+    } else if (timeline === '3y') {
+      url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=1095&aggregate=1&e=CCCAGG`;
     }
     return this.http.get(url);
   }
