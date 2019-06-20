@@ -1,16 +1,19 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { CoinService } from '../../services/coin-service.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-coin-market',
   templateUrl: './coin-market.component.html',
   styleUrls: ['./coin-market.component.css']
 })
-export class CoinMarketComponent implements OnInit {
+export class CoinMarketComponent implements OnInit, OnDestroy {
   coins;
   timer;
   columnsToDisplay = [
@@ -29,6 +32,9 @@ export class CoinMarketComponent implements OnInit {
   pageSize = 10;
   page;
   globalMarketCap: any;
+
+  private ngUnsubscribe: Subject<any> = new Subject();
+
   constructor(private coinService: CoinService, private router: Router,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute) {
@@ -62,6 +68,7 @@ export class CoinMarketComponent implements OnInit {
   }
   getCoins() {
     this.coinService.getCoins()
+    .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(coins => {
       this.coins = coins;
       this.dataSource = new MatTableDataSource<Element>(this.coins);
@@ -72,6 +79,7 @@ export class CoinMarketComponent implements OnInit {
   }
   getGlobalMarketCap() {
     this.coinService.getGlobalMarketCap()
+      .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
         this.globalMarketCap = res[0];
       });
@@ -88,6 +96,10 @@ export class CoinMarketComponent implements OnInit {
       this.pageSize = this.pageIndex.pageSize;
       this.pageIndex = this.pageIndex.pageIndex;
     }
+  }
+  ngOnDestroy(): any {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }
 export interface Element {

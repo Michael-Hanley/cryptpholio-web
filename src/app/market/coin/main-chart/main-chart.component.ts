@@ -2,6 +2,9 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { CoinService } from '../../../services/coin-service.service';
 import { Chart } from 'angular-highcharts';
 
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-main-chart',
   templateUrl: './main-chart.component.html',
@@ -17,6 +20,8 @@ export class MainChartComponent implements OnInit, OnDestroy {
   ready = false;
   timelineOptions = ['1h', '24h', '7d', '1m', '6m', '1y', '3y'];
   currentTimeline = '3y';
+  private ngUnsubscribe: Subject<any> = new Subject();
+
   constructor(private coinService: CoinService) {
   }
   onSelect(event) {
@@ -24,6 +29,7 @@ export class MainChartComponent implements OnInit, OnDestroy {
   }
   getCoinHistory() {
     this.coinService.getHistory(this.symbol, this.currentTimeline)
+    .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(hist => {
       this.history = hist;
       const market_cap_usd_arr = [];
@@ -82,6 +88,8 @@ export class MainChartComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
       this.chart = null;
+      this.ngUnsubscribe.next();
+      this.ngUnsubscribe.complete();
   }
 }
 
