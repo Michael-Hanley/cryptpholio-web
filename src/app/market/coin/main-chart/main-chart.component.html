@@ -1,7 +1,7 @@
 <div *ngIf="ready">
   <div class="chartToggle">
     <mat-button-toggle-group #group="matButtonToggleGroup">
-      <mat-button-toggle *ngFor="let timeline of timelineOptions" value="{{timeline}}" [checked]="timeline === currentTimeline" (click)="currentTimeline = timeline; getCoinHistory()">
+      <mat-button-toggle *ngFor="let timeline of timelineOptions" value="{{timeline}}" [checked]="timeline === currentTimeline" (click)="currentTimeline = timeline; getCoinHistory(); ready = false">
         {{timeline}}
       </mat-button-toggle>
     </mat-button-toggle-group>
