@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { CoinService } from '../../services/coin-service.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatIconRegistry } from '@angular/material';
@@ -7,6 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { CoinService } from '../../services/coin-service.service';
 import { RouteService } from '../../services/route-service.service';
 
 @Component({
@@ -67,11 +68,6 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue;
   }
 
-  coinView(coin) {
-    clearTimeout(this.timer);
-    this.router.navigate(['/coin'], {queryParams: {coinId: coin.id}});
-  }
-
   getCoins() {
     this.coinService.getCoins()
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -101,6 +97,12 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     const queryParams = params;
     this.router.navigate(['.'], { queryParams: queryParams });
     this.routeService.updateMarketParams(params);
+  }
+
+  onNavigation(navigated) {
+    if (navigated) {
+      clearTimeout(this.timer);
+    }
   }
 
   ngOnInit() {

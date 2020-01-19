@@ -1,9 +1,11 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { CoinService } from '../../../services/coin-service.service';
-import { Chart } from 'angular-highcharts';
 
+import { Chart } from 'angular-highcharts';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { CoinService } from '../../../services/coin-service.service';
+
 
 @Component({
   selector: 'app-main-chart',

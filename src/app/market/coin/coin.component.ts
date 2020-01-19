@@ -3,9 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Location } from '@angular/common';
-import { CoinService } from '../../services/coin-service.service';
-import { takeUntil } from 'rxjs/operators';
+
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { CoinService } from '../../services/coin-service.service';
 import { RouteService } from '../../services/route-service.service';
 
 @Component({

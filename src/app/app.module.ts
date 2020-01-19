@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -12,18 +15,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule, Routes } from '@angular/router';
+import { ChartModule } from 'angular-highcharts';
+
 import { AppComponent } from './app.component';
 import { CoinMarketComponent } from './market/coin-market/coin-market.component';
 import { CoinComponent } from './market/coin/coin.component';
 import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
-
-import { ChartModule } from 'angular-highcharts';
-
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { MarketTableComponent } from './market/coin-market/market-table/market-table.component';
 
 const appRoutes: Routes = [
   {
@@ -37,7 +37,8 @@ const appRoutes: Routes = [
     AppComponent,
     CoinMarketComponent,
     CoinComponent,
-    MainChartComponent
+    MainChartComponent,
+    MarketTableComponent
   ],
   imports: [
     FlexLayoutModule,
