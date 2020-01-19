@@ -76,6 +76,7 @@ export class MainChartComponent implements OnInit, OnDestroy {
           }
         },
         series: [{
+          type: 'line',
           name: this.symbol,
           data: this.chartHistory
         }]
