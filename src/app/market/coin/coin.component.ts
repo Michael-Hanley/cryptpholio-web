@@ -14,23 +14,27 @@ export class CoinComponent implements OnInit {
   current_btc_price;
   market_cap_btc;
   imageUrl = 'https://www.cryptocompare.com';
+
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer, public location: Location) {
     this.route.queryParams.subscribe(
-    params => {
-         this.coin = params;
-         this.current_btc_price = this.coin.price / this.coin.priceBtc;
-         this.market_cap_btc = this.coin.marketCap / this.current_btc_price;
-    });
+      params => {
+          this.coin = params;
+          this.current_btc_price = this.coin.price / this.coin.priceBtc;
+          this.market_cap_btc = this.coin.marketCap / this.current_btc_price;
+      }
+    );
     iconRegistry.addSvgIcon(
       'btc',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg')
+    );
   }
+
 
   backToMarker() {
     this.location.back();
   }
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 
 }
