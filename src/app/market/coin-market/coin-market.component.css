@@ -1,10 +1,6 @@
 .mat-header-cell.mat-sort-header-sorted {
   color: black;
 }
-.mat-table {
-  overflow: auto;
-  min-width: 875px;
-}
 .search-box {
   width: 200px;
   padding: 8px 24px;
@@ -19,31 +15,8 @@
   overflow: auto;
   margin-bottom: 20px;
 }
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-.mat-column-icon {
-  flex: 0 0 45px;
-}
-.mat-column-symbol {
-  flex: 0 0 90px;
-}
-.mat-column-btc_price {
-  flex: 0 0 115px;
-}
-.mat-column-usd_price {
-  flex: 0 0 115px;
-}
 .spinner-margin {
   margin: 0 10px;
-}
-.column {
-  cursor: pointer;
-}
-.icon {
-  width: 12px;
-  height: 12px;
 }
 .global_market_cap {
   width: 500px;

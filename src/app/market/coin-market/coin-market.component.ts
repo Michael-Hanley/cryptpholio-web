@@ -68,11 +68,6 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     this.dataSource.filter = filterValue;
   }
 
-  coinView(coin) {
-    clearTimeout(this.timer);
-    this.router.navigate(['/coin'], {queryParams: {coinId: coin.id}});
-  }
-
   getCoins() {
     this.coinService.getCoins()
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -102,6 +97,12 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     const queryParams = params;
     this.router.navigate(['.'], { queryParams: queryParams });
     this.routeService.updateMarketParams(params);
+  }
+
+  onNavigation(navigated) {
+    if (navigated) {
+      clearTimeout(this.timer);
+    }
   }
 
   ngOnInit() {

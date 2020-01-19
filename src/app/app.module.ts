@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { CoinMarketComponent } from './market/coin-market/coin-market.component';
 import { CoinComponent } from './market/coin/coin.component';
 import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
+import { MarketTableComponent } from './market/coin-market/market-table/market-table.component';
 
 const appRoutes: Routes = [
   {
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     AppComponent,
     CoinMarketComponent,
     CoinComponent,
-    MainChartComponent
+    MainChartComponent,
+    MarketTableComponent
   ],
   imports: [
     FlexLayoutModule,
