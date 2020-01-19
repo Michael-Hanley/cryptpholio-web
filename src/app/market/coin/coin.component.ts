@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import {MatIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
-import {Location} from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 import { CoinService } from '../../services/coin-service.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { RouteService } from '../../services/route-service.service';
 
 @Component({
   selector: 'app-coin',
@@ -21,7 +22,8 @@ export class CoinComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer, public location: Location, private coinService: CoinService) {
+    public routeService: RouteService, sanitizer: DomSanitizer, public location: Location,
+    private coinService: CoinService, private router: Router) {
     this.route.queryParams.subscribe(
       params => {
         this.getCoinDetails(params.coinId);
@@ -45,8 +47,7 @@ export class CoinComponent implements OnInit, OnDestroy {
   }
 
   backToMarker() {
-    console.log(this.location);
-    this.location.back();
+    this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
   }
 
   ngOnInit() {}

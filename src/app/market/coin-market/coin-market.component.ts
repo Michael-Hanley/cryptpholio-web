@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { RouteService } from '../../services/route-service.service';
 
 @Component({
   selector: 'app-coin-market',
@@ -14,6 +15,8 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./coin-market.component.css']
 })
 export class CoinMarketComponent implements OnInit, OnDestroy {
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   coins;
   timer;
   columnsToDisplay = [
@@ -27,7 +30,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'availableSupply'
   ];
   imageUrl = 'https://www.cryptocompare.com';
-  dataSource = new MatTableDataSource<Element>(this.coins);
+  dataSource = new MatTableDataSource<Coin>(this.coins);
   pageIndex;
   pageSize = 10;
   page;
@@ -38,7 +41,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
 
   constructor(private coinService: CoinService, private router: Router,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private routeService: RouteService) {
     this.getCoins();
     this.getGlobalStats();
     iconRegistry.addSvgIcon(
@@ -53,27 +56,29 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
           this.pageIndex = params.pageIndex;
           this.pageSize = params.pageSize;
           }
+
+          this.routeService.updateMarketParams(params);
       });
    }
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
   coinView(coin) {
     clearTimeout(this.timer);
     this.router.navigate(['/coin'], {queryParams: {coinId: coin.id}});
   }
+
   getCoins() {
     this.coinService.getCoins()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(coins => {
         if (!coins) { return; }
         this.coins = coins;
-        this.dataSource = new MatTableDataSource<Element>(this.coins.coins);
+        this.dataSource = new MatTableDataSource<Coin>(this.coins.coins);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.ready = true;
@@ -87,25 +92,31 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
         this.globalStats = res[0];
       });
   }
+
   syncCoins() {
     this.timer = setTimeout(() => this.getCoins(), 60000);
   }
+
   updateUrl(params) {
     const queryParams = params;
     this.router.navigate(['.'], { queryParams: queryParams });
+    this.routeService.updateMarketParams(params);
   }
+
   ngOnInit() {
     if (this.page !== undefined) {
       this.pageSize = this.pageIndex.pageSize;
       this.pageIndex = this.pageIndex.pageIndex;
     }
   }
+
   ngOnDestroy(): any {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
+
 }
-export interface Element {
+export interface Coin {
   name: string;
   symbol: number;
   priceBtc: number;
