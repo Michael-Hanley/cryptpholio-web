@@ -45,6 +45,7 @@ export class CoinComponent implements OnInit, OnDestroy {
   }
 
   backToMarker() {
+    console.log(this.location);
     this.location.back();
   }
 
