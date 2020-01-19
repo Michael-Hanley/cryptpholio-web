@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { CoinService } from '../../services/coin-service.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatIconRegistry } from '@angular/material';
@@ -7,6 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { CoinService } from '../../services/coin-service.service';
 import { RouteService } from '../../services/route-service.service';
 
 @Component({
