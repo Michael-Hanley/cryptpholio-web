@@ -72,7 +72,6 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(coins => {
         if (!coins) { return; }
-        console.log(coins);
         this.coins = coins;
         this.dataSource = new MatTableDataSource<Element>(this.coins.coins);
         this.dataSource.paginator = this.paginator;
@@ -85,7 +84,6 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     this.coinService.getGlobalStats()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
-        console.log(res[0]);
         this.globalStats = res[0];
       });
   }
