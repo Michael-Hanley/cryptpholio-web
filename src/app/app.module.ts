@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { CoinService } from './services/coin-service.service';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -62,7 +61,7 @@ const appRoutes: Routes = [
     MatButtonToggleModule,
     MatSidenavModule
   ],
-  providers: [CoinService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
