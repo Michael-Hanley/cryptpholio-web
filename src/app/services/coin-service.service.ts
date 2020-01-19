@@ -14,13 +14,13 @@ export class CoinService {
   }
   getCoins() {
     // const url = this.api_url + '/market';
-
-    const url = 'https://api.coinstats.app/public/v1/coins?limit=1500';
+    const url = 'https://api.coinstats.app/public/v1/coins?limit=3500';
     return this.http.get(url);
   }
-  getGlobalMarketCap() {
+  getGlobalStats() {
     // const url = this.api_url + '/market/global';
-    // return this.http.get(url);
+    const url = 'https://api.coinlore.com/api/global/';
+    return this.http.get(url);
   }
   getHistory(coin, timeline) {
     let url;

@@ -21,7 +21,6 @@ export class CoinComponent implements OnInit {
          this.coin = params;
          this.current_btc_price = this.coin.price / this.coin.priceBtc;
          this.market_cap_btc = this.coin.marketCap / this.current_btc_price;
-         console.log(params);
     });
     iconRegistry.addSvgIcon(
       'btc',

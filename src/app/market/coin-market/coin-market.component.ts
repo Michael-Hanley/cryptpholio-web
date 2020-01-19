@@ -31,7 +31,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   pageIndex;
   pageSize = 10;
   page;
-  globalMarketCap: any;
+  globalStats: any;
   ready = false;
 
   private ngUnsubscribe: Subject<any> = new Subject();
@@ -40,7 +40,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute) {
     this.getCoins();
-    this.getGlobalMarketCap();
+    this.getGlobalStats();
     iconRegistry.addSvgIcon(
       'btc',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
@@ -72,6 +72,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(coins => {
         if (!coins) { return; }
+        console.log(coins);
         this.coins = coins;
         this.dataSource = new MatTableDataSource<Element>(this.coins.coins);
         this.dataSource.paginator = this.paginator;
@@ -80,12 +81,13 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
         this.syncCoins();
       });
   }
-  getGlobalMarketCap() {
-    // this.coinService.getGlobalMarketCap()
-    //   .pipe(takeUntil(this.ngUnsubscribe))
-    //   .subscribe(res => {
-    //     this.globalMarketCap = res[0];
-    //   });
+  getGlobalStats() {
+    this.coinService.getGlobalStats()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(res => {
+        console.log(res[0]);
+        this.globalStats = res[0];
+      });
   }
   syncCoins() {
     this.timer = setTimeout(() => this.getCoins(), 60000);
