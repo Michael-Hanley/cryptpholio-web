@@ -65,7 +65,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
   coinView(coin) {
     clearTimeout(this.timer);
-    this.router.navigate(['/coin'], {queryParams: coin});
+    this.router.navigate(['/coin'], {queryParams: {coinId: coin.id}});
   }
   getCoins() {
     this.coinService.getCoins()

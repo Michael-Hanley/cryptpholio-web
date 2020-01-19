@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="coin !== undefined">
     <div>
         <button mat-button (click)="backToMarker()"><mat-icon>arrow_back</mat-icon>Back to Market</button>
     </div>
@@ -30,3 +30,7 @@
     </app-main-chart>
   </div>
 </div>
+<div fxLayout fxLayoutAlign="center center" >
+    <mat-spinner class="spinner" *ngIf="coin === undefined">
+    </mat-spinner>
+  </div>
