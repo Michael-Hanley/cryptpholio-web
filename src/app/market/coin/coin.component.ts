@@ -19,8 +19,8 @@ export class CoinComponent implements OnInit {
     this.route.queryParams.subscribe(
     params => {
          this.coin = params;
-         this.current_btc_price = this.coin.usd_price / this.coin.btc_price;
-         this.market_cap_btc = this.coin.market_cap_usd / this.current_btc_price;
+         this.current_btc_price = this.coin.price / this.coin.priceBtc;
+         this.market_cap_btc = this.coin.marketCap / this.current_btc_price;
     });
     iconRegistry.addSvgIcon(
       'btc',

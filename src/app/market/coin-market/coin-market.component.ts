@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { CoinService } from '../../services/coin-service.service';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MatIconRegistry} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -20,18 +20,19 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'icon',
     'name',
     'symbol',
-    'usd_price',
-    'btc_price',
-    'market_cap_usd',
-    'percent_change_24h',
-    'available_supply'
+    'price',
+    'priceBtc',
+    'marketCap',
+    'priceChange1d',
+    'availableSupply'
   ];
   imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Element>(this.coins);
   pageIndex;
   pageSize = 10;
   page;
-  globalMarketCap: any;
+  globalStats: any;
+  ready = false;
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
@@ -39,7 +40,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute) {
     this.getCoins();
-    this.getGlobalMarketCap();
+    this.getGlobalStats();
     iconRegistry.addSvgIcon(
       'btc',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
@@ -55,8 +56,8 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
       });
    }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
@@ -68,20 +69,22 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
   getCoins() {
     this.coinService.getCoins()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(coins => {
-      this.coins = coins;
-      this.dataSource = new MatTableDataSource<Element>(this.coins);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      this.syncCoins();
-    });
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(coins => {
+        if (!coins) { return; }
+        this.coins = coins;
+        this.dataSource = new MatTableDataSource<Element>(this.coins.coins);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.ready = true;
+        this.syncCoins();
+      });
   }
-  getGlobalMarketCap() {
-    this.coinService.getGlobalMarketCap()
+  getGlobalStats() {
+    this.coinService.getGlobalStats()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
-        this.globalMarketCap = res[0];
+        this.globalStats = res[0];
       });
   }
   syncCoins() {
@@ -105,14 +108,13 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
 export interface Element {
   name: string;
   symbol: number;
-  btc_price: number;
-  usd_price: string;
-  market_cap_usd: number;
-  percent_change_1h: number;
-  percent_change_24h: number;
-  percent_change_7d: number;
-  image_url: string;
-  available_supply: number;
-  total_supply: number;
-  max_supply: number;
+  priceBtc: number;
+  price: number;
+  marketCap: number;
+  priceChange1h: number;
+  priceChange1d: number;
+  priceChange1w: number;
+  icon: string;
+  availableSupply: number;
+  totalSupply: number;
 }
