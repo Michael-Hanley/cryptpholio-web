@@ -17,6 +17,11 @@ export class CoinService {
     const url = 'https://api.coinstats.app/public/v1/coins?limit=3500';
     return this.http.get(url);
   }
+  getCoinDetail(coinId): any {
+    // coinId is the name of the coin with spaces replaced with hyphens
+    const url = `https://api.coinstats.app/public/v1/coins/${coinId}`;
+    return this.http.get(url);
+  }
   getGlobalStats() {
     // const url = this.api_url + '/market/global';
     const url = 'https://api.coinlore.com/api/global/';

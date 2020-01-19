@@ -14,40 +14,42 @@ export class MainChartComponent implements OnInit, OnDestroy {
   @Input() symbol;
   @Input() supply;
   @Input() name;
+
   history;
   chartHistory;
   chart;
   ready = false;
   timelineOptions = ['1h', '24h', '7d', '1m', '6m', '1y', '3y'];
   currentTimeline = '3y';
+
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  constructor(private coinService: CoinService) {
-  }
+  constructor(private coinService: CoinService) {}
+
   onSelect(event) {
     console.log(event);
   }
+
   getCoinHistory() {
     this.coinService.getHistory(this.symbol, this.currentTimeline)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(hist => {
-      this.history = hist;
       const market_cap_usd_arr = [];
-      // const date_arr = [];
-      this. chartHistory = [];
+      this.chartHistory = [];
+      this.history = hist;
+
       this.history.Data.forEach(time => {
         const market_cap_usd = time.high * this.supply;
         const utcSeconds = time.time;
         const date = new Date(0);
+
         date.setUTCSeconds(utcSeconds);
-        // const market_cap_usd = {'y': date, 'x': time['market_cap_usd']};
-        // market_cap_usd_arr.push(market_cap_usd);
+
         market_cap_usd_arr.push({'y': market_cap_usd, 'x': date});
-        // date_arr.push(date);
       });
-      // this.chartHistory['market_cap_usd'] = market_cap_usd_arr;
+
       this.chartHistory = market_cap_usd_arr;
-      // this.chartHistory['dates'] = date_arr;
+
       this.chart = new Chart({
         chart: {
           type: 'line'
@@ -81,12 +83,15 @@ export class MainChartComponent implements OnInit, OnDestroy {
           data: this.chartHistory
         }]
       });
+
       this.ready = true;
     });
   }
+
   ngOnInit() {
     this.getCoinHistory();
   }
+
   ngOnDestroy() {
       this.chart = null;
       this.ngUnsubscribe.next();
