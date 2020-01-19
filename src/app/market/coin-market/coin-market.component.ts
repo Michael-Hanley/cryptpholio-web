@@ -20,11 +20,11 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'icon',
     'name',
     'symbol',
-    'usd_price',
-    'btc_price',
-    'market_cap_usd',
-    'percent_change_24h',
-    'available_supply'
+    'price',
+    'priceBtc',
+    'marketCap',
+    'priceChange1d',
+    'availableSupply'
   ];
   imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Element>(this.coins);
@@ -32,6 +32,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   pageSize = 10;
   page;
   globalMarketCap: any;
+  ready = false;
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
@@ -68,21 +69,23 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
   getCoins() {
     this.coinService.getCoins()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(coins => {
-      this.coins = coins;
-      this.dataSource = new MatTableDataSource<Element>(this.coins);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      this.syncCoins();
-    });
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(coins => {
+        if (!coins) { return; }
+        this.coins = coins;
+        this.dataSource = new MatTableDataSource<Element>(this.coins.coins);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.ready = true;
+        this.syncCoins();
+      });
   }
   getGlobalMarketCap() {
-    this.coinService.getGlobalMarketCap()
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(res => {
-        this.globalMarketCap = res[0];
-      });
+    // this.coinService.getGlobalMarketCap()
+    //   .pipe(takeUntil(this.ngUnsubscribe))
+    //   .subscribe(res => {
+    //     this.globalMarketCap = res[0];
+    //   });
   }
   syncCoins() {
     this.timer = setTimeout(() => this.getCoins(), 60000);
@@ -105,14 +108,13 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
 export interface Element {
   name: string;
   symbol: number;
-  btc_price: number;
-  usd_price: string;
-  market_cap_usd: number;
-  percent_change_1h: number;
-  percent_change_24h: number;
-  percent_change_7d: number;
-  image_url: string;
-  available_supply: number;
-  total_supply: number;
-  max_supply: number;
+  priceBtc: number;
+  price: number;
+  marketCap: number;
+  priceChange1h: number;
+  priceChange1d: number;
+  priceChange1w: number;
+  icon: string;
+  availableSupply: number;
+  totalSupply: number;
 }

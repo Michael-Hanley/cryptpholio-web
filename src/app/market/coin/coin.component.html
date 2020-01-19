@@ -4,21 +4,21 @@
     </div>
     <br>
   <div class="coinInfo">
-    <span class="logo"><img src="{{imageUrl}}{{coin.image_url}}" width="67" height="67"></span>
+    <span class="logo"><img src="{{coin.icon}}" width="67" height="67"></span>
     <div>
         <div class="nameSymbol">
             <span>{{coin.name}}</span>
             <span>({{coin.symbol}})</span>
         </div>
         <div class="marketPrice">
-            <div>{{coin.usd_price | currency}}</div>
-            <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.btc_price | number:'.2-9'}}</div>
+            <div>{{coin.price | currency}}</div>
+            <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.priceBtc | number:'.2-9'}}</div>
 
         </div>
     </div>
     <div class='marketCap'>
         <div>Market Cap</div>
-        <div>${{coin.market_cap_usd | number: '1.0-0'}}</div>
+        <div>${{coin.marketCap | number: '1.0-0'}}</div>
         <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{market_cap_btc  | number: '1.0-0'}}</div>
     </div>
   </div>
@@ -27,7 +27,7 @@
     <app-main-chart
         [name]='coin.name'
         [symbol]='coin.symbol'
-        [supply]='coin.total_supply'>
+        [supply]='coin.availableSupply'>
     </app-main-chart>
   </div>
 </div>

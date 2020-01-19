@@ -13,12 +13,14 @@ export class CoinService {
     return this.http.get(url);
   }
   getCoins() {
-    const url = this.api_url + '/market';
+    // const url = this.api_url + '/market';
+
+    const url = 'https://api.coinstats.app/public/v1/coins?limit=1500';
     return this.http.get(url);
   }
   getGlobalMarketCap() {
-    const url = this.api_url + '/market/global';
-    return this.http.get(url);
+    // const url = this.api_url + '/market/global';
+    // return this.http.get(url);
   }
   getHistory(coin, timeline) {
     let url;

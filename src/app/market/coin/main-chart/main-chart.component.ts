@@ -31,9 +31,10 @@ export class MainChartComponent implements OnInit, OnDestroy {
     this.coinService.getHistory(this.symbol, this.currentTimeline)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(hist => {
+      console.log(hist);
       this.history = hist;
       const market_cap_usd_arr = [];
-      const date_arr = [];
+      // const date_arr = [];
       this. chartHistory = [];
       this.history.Data.forEach(time => {
         const market_cap_usd = time.high * this.supply;
@@ -42,6 +43,7 @@ export class MainChartComponent implements OnInit, OnDestroy {
         date.setUTCSeconds(utcSeconds);
         // const market_cap_usd = {'y': date, 'x': time['market_cap_usd']};
         // market_cap_usd_arr.push(market_cap_usd);
+        console.log(time.high);
         market_cap_usd_arr.push({'y': market_cap_usd, 'x': date});
         // date_arr.push(date);
       });
