@@ -7,8 +7,8 @@ import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CoinService } from '../../services/coin-service.service';
-import { RouteService } from '../../services/route-service.service';
+import { CoinService } from '../../services/coin.service';
+import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-coin',
@@ -26,8 +26,9 @@ export class CoinComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
     public routeService: RouteService, sanitizer: DomSanitizer, public location: Location,
     private coinService: CoinService, private router: Router) {
-    this.route.queryParams.subscribe(
-      params => {
+    this.route.queryParams
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(params => {
         this.getCoinDetails(params.coinId);
       }
     );
