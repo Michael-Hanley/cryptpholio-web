@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,12 @@ export class AppComponent {
   title = 'app';
   currentTheme = 'light-theme';
   darkMode = false;
-  
+
+  constructor(private themeService: ThemeService) {
+
+  }
   changeTheme() {
     this.currentTheme = this.currentTheme !== 'dark-theme' ? 'dark-theme' : 'light-theme';
+    this.themeService.updateThemeObject(this.currentTheme);
   }
 }

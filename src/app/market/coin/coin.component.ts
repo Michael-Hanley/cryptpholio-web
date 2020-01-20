@@ -26,8 +26,9 @@ export class CoinComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
     public routeService: RouteService, sanitizer: DomSanitizer, public location: Location,
     private coinService: CoinService, private router: Router) {
-    this.route.queryParams.subscribe(
-      params => {
+    this.route.queryParams
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(params => {
         this.getCoinDetails(params.coinId);
       }
     );
