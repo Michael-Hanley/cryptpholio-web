@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-market-table',
   templateUrl: './market-table.component.html',
-  styleUrls: ['./market-table.component.css']
+  styleUrls: ['./market-table.component.scss']
 })
 export class MarketTableComponent implements OnInit {
   @Input() dataSource;
@@ -20,8 +20,6 @@ export class MarketTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.coins);
-    console.log(this.dataSource);
   }
 
 }

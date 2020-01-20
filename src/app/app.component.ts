@@ -4,7 +4,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   animations: [
     trigger('iconChange', [
       state('true',
@@ -20,4 +20,10 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class AppComponent {
   isCollapsed;
   title = 'app';
+  currentTheme = 'light-theme';
+  darkMode = false;
+  
+  changeTheme() {
+    this.currentTheme = this.currentTheme !== 'dark-theme' ? 'dark-theme' : 'light-theme';
+  }
 }

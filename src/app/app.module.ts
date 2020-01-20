@@ -16,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { ChartModule } from 'angular-highcharts';
 
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatProgressSpinnerModule,
     MatButtonToggleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

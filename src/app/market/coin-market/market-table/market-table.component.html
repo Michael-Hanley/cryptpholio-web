@@ -1,5 +1,5 @@
 <mat-table #table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="icon" >
+    <ng-container matColumnDef="icon">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'> <img src="{{coin.icon}}" width="30" height="30"> </mat-cell>
     </ng-container>
@@ -38,6 +38,11 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header> Available Supply </mat-header-cell>
       <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.availableSupply}}</mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="volume">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Volume </mat-header-cell>
+        <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.volume}}</mat-cell>
+      </ng-container>
 
     <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
     <mat-row *matRowDef="let coins; columns: columnsToDisplay"></mat-row>
