@@ -25,7 +25,8 @@ export class AppComponent {
   darkMode = false;
 
   constructor(private themeService: ThemeService) {
-
+    this.currentTheme = this.themeService.currentTheme;
+    this.darkMode = this.currentTheme === 'dark-theme' ? true : false;
   }
   changeTheme() {
     this.currentTheme = this.currentTheme !== 'dark-theme' ? 'dark-theme' : 'light-theme';

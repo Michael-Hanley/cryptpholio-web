@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { ChartModule } from 'angular-highcharts';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
 import { CoinMarketComponent } from './market/coin-market/coin-market.component';
@@ -64,7 +65,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatSlideToggleModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
