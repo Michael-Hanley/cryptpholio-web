@@ -13,7 +13,7 @@ import { RouteService } from '../../services/route-service.service';
 @Component({
   selector: 'app-coin-market',
   templateUrl: './coin-market.component.html',
-  styleUrls: ['./coin-market.component.css']
+  styleUrls: ['./coin-market.component.scss']
 })
 export class CoinMarketComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -28,7 +28,8 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'priceBtc',
     'marketCap',
     'priceChange1d',
-    'availableSupply'
+    'availableSupply',
+    'volume'
   ];
   imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Coin>(this.coins);

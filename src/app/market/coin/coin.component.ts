@@ -13,7 +13,7 @@ import { RouteService } from '../../services/route-service.service';
 @Component({
   selector: 'app-coin',
   templateUrl: './coin.component.html',
-  styleUrls: ['./coin.component.css']
+  styleUrls: ['./coin.component.scss']
 })
 export class CoinComponent implements OnInit, OnDestroy {
   coin;

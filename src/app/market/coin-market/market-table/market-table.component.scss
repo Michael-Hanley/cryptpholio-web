@@ -1,6 +1,7 @@
 .icon {
     width: 12px;
     height: 12px;
+    line-height: 12px;
 }
 .mat-table {
     overflow: auto;
@@ -22,7 +23,6 @@
 .mat-column-price {
     flex: 0 0 95px;
 }
-
 .mat-column-marketCap {
     flex: 0 0 155px;
 }
