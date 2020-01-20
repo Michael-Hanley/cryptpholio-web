@@ -4,7 +4,7 @@ import { Chart } from 'angular-highcharts';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CoinService } from '../../../services/coin-service.service';
+import { CoinService } from '../../../services/coin.service';
 
 
 @Component({

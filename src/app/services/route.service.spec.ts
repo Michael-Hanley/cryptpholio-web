@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RouteServiceService } from './route-service.service';
+import { RouteServiceService } from './route.service';
 
 describe('RouteServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

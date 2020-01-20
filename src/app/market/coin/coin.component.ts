@@ -7,8 +7,8 @@ import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CoinService } from '../../services/coin-service.service';
-import { RouteService } from '../../services/route-service.service';
+import { CoinService } from '../../services/coin.service';
+import { RouteService } from '../../services/route.service';
 
 @Component({
   selector: 'app-coin',
