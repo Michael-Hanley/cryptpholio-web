@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +13,9 @@ export class ThemeService {
   readonly _themeObject$ = this._themeObject.asObservable();
   readonly _currentTheme$ = this._currentTheme.asObservable();
 
-  constructor(private cookieService: CookieService) {
-    const theme = this.cookieService.get('theme');
-    if (theme !== undefined) {
+  constructor() {
+    const theme = localStorage.getItem('theme');
+    if (theme) {
       this.updateThemeObject(theme);
     } else {
       this.updateThemeObject('light-theme');
@@ -39,7 +38,7 @@ export class ThemeService {
       themeObj.lightColor = '';
       themeObj.darkColor = '';
     }
-    this.cookieService.set('theme', theme);
+    localStorage.setItem('theme', theme);
     this._themeObject.next(themeObj);
     this._currentTheme.next(theme);
   }
