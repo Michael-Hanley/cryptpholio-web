@@ -15,12 +15,7 @@
 
     <div class="sidenav-content">
       <div class="routeContainer mat-elevation-z5">
-          <mat-slide-toggle
-          class="theme-toggle"
-          (click)="changeTheme()"
-          [checked]="darkMode">
-          Dark Theme
-        </mat-slide-toggle>
+          <app-theme-switch></app-theme-switch>
           <router-outlet></router-outlet>    
       </div>
     </div>
