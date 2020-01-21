@@ -26,6 +26,7 @@ import { CoinMarketComponent } from './market/coin-market/coin-market.component'
 import { CoinComponent } from './market/coin/coin.component';
 import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
 import { MarketTableComponent } from './market/coin-market/market-table/market-table.component';
+import { ThemeSwitchComponent } from './component/theme-switch/theme-switch.component';
 
 const appRoutes: Routes = [
   {
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     CoinMarketComponent,
     CoinComponent,
     MainChartComponent,
-    MarketTableComponent
+    MarketTableComponent,
+    ThemeSwitchComponent
   ],
   imports: [
     FlexLayoutModule,
