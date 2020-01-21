@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CoinService } from './coin.service';
 
-describe('CoinServiceService', () => {
+describe('CoinService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CoinService]
+      providers: [CoinService],
+      imports: [HttpClientTestingModule, MatProgressSpinnerModule]
     });
   });
 

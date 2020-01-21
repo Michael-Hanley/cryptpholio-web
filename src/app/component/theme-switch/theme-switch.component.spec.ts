@@ -2,13 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ThemeSwitchComponent } from './theme-switch.component';
 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 describe('ThemeSwitchComponent', () => {
   let component: ThemeSwitchComponent;
   let fixture: ComponentFixture<ThemeSwitchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThemeSwitchComponent ]
+      declarations: [ ThemeSwitchComponent ],
+      imports: [MatSlideToggleModule]
     })
     .compileComponents();
   }));
