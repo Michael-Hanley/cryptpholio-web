@@ -30,10 +30,6 @@ export class ThemeService {
     return this._currentTheme.getValue();
   }
 
-  // get currentTheme() {
-  //   return this.cookieService.get('theme');
-  // }
-
   updateThemeObject(theme) {
     const themeObj: any = {};
     if (theme === 'dark-theme') {
