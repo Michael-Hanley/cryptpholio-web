@@ -9,11 +9,7 @@ export class CoinService {
   api_url = environment.api_url;
 
   constructor(private http: HttpClient) {}
-
-  getCoinsByMarketCap() {
-    const url = `https://api.coinmarketcap.com/v1/ticker/?limit=100`;
-    return this.http.get(url);
-  }
+  
   getCoins() {
     // const url = this.api_url + '/market';
     const url = 'https://api.coinstats.app/public/v1/coins?limit=3500';
