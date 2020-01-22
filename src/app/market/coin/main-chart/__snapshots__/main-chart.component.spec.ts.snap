@@ -11,7 +11,209 @@ exports[`MainChartComponent should match snapshot 1`] = `
   themeService={[Function ThemeService]}
   timelineOptions={[Function Array]}
 >
-  <div
+  <div>
+    <div
+      class="chartToggle"
+    >
+      <mat-button-toggle-group
+        aria-disabled="false"
+        class="mat-button-toggle-group mat-button-toggle-group-appearance-standard"
+        role="group"
+      >
+        
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-9"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-9-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               1h 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-10"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-10-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               24h 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-11"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-11-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               7d 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-12"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-12-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               1m 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-13"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-13-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               6m 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-14"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="false"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-14-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               1y 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+        <mat-button-toggle
+          class="mat-button-toggle mat-button-toggle-checked mat-button-toggle-appearance-standard"
+          id="mat-button-toggle-15"
+          tabindex="-1"
+        >
+          <button
+            aria-pressed="true"
+            class="mat-button-toggle-button"
+            id="mat-button-toggle-15-button"
+            name="mat-button-toggle-group-8"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="mat-button-toggle-label-content"
+            >
+               3y 
+            </div>
+          </button>
+          <div
+            class="mat-button-toggle-focus-overlay"
+          />
+          <div
+            class="mat-button-toggle-ripple mat-ripple"
+            matripple=""
+          />
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    
+  </div><div
     fxlayout=""
     fxlayoutalign="center center"
   >
