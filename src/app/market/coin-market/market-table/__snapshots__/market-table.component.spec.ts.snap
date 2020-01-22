@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarketTableComponent should match snapshot 1`] = `
+<app-market-table
+  navigated={[Function EventEmitter]}
+  router={[Function Router]}
+>
+  <mat-table
+    class="mat-table"
+    matsort=""
+    role="grid"
+  >
+    
+    <mat-header-row
+      class="mat-header-row"
+      role="row"
+    >
+      
+    </mat-header-row>
+    
+    
+  </mat-table>
+</app-market-table>
+`;

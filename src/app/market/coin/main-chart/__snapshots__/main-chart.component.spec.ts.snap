@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainChartComponent should match snapshot 1`] = `
+<app-main-chart
+  chart={[Function Chart]}
+  coinService={[Function CoinService]}
+  currentTimeline={[Function String]}
+  ngUnsubscribe={[Function Subject]}
+  ready="false"
+  theme={[Function Object]}
+  themeService={[Function ThemeService]}
+  timelineOptions={[Function Array]}
+>
+  <div
+    fxlayout=""
+    fxlayoutalign="center center"
+  >
+    
+    <mat-spinner
+      class="spinner mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
+      mode="indeterminate"
+      role="progressbar"
+      style="width: 100px; height: 100px;"
+    >
+      <svg
+        focusable="false"
+        preserveAspectRatio="xMidYMid meet"
+        style="width: 100px; height: 100px;"
+        viewBox="0 0 100 100"
+      >
+        
+        <circle
+          cx="50%"
+          cy="50%"
+          r="45"
+          style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
+        />
+        
+      </svg>
+    </mat-spinner>
+  </div>
+</app-main-chart>
+`;

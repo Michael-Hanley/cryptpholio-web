@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoinMarketComponent } from './coin-market.component';
 import { MarketTableComponent } from '../../market/coin-market/market-table/market-table.component';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material';
@@ -23,7 +22,6 @@ describe('CoinMarketComponent', () => {
         MockComponent(MarketTableComponent)
       ],
       imports: [
-        MatFormFieldModule,
         MatProgressSpinnerModule,
         MatPaginatorModule,
         HttpClientTestingModule,
@@ -43,5 +41,8 @@ describe('CoinMarketComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should match snapshot', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });

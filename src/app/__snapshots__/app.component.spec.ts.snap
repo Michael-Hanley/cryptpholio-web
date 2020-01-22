@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should match snapshot 1`] = `
+<app-root
+  currentTheme={[Function String]}
+  ngUnsubscribe={[Function Subject]}
+  themeService={[Function ThemeService]}
+>
+  <div
+    class="ng-tns-c3-0 container light-theme"
+  >
+    <mat-drawer-container
+      class="sideNav_container mat-drawer-container"
+    >
+      
+      <div
+        class="mat-drawer-backdrop ng-star-inserted"
+      />
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-drawer
+        class="mat-drawer ng-tns-c5-1 ng-trigger ng-trigger-transform ng-tns-c3-0 mat-drawer-over ng-star-inserted"
+        mode="over"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          class="mat-drawer-inner-container"
+        >
+          <p
+            class="ng-tns-c3-0"
+          >
+            Auto-resizing sidenav
+          </p>
+          <button
+            class="ng-tns-c3-0"
+          >
+            Market
+          </button>
+        </div>
+      </mat-drawer>
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      
+      <mat-drawer-content
+        class="mat-drawer-content ng-star-inserted"
+      >
+        <div
+          class="sidenav-content ng-tns-c3-0"
+        >
+          <div
+            class="routeContainer mat-elevation-z5"
+          >
+            <app-theme-switch
+              class="ng-tns-c3-0"
+            />
+            <router-outlet
+              class="ng-tns-c3-0"
+            />
+          </div>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</app-root>
+`;

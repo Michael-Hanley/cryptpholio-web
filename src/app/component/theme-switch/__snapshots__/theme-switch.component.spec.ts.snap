@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeSwitchComponent should match snapshot 1`] = `
+<app-theme-switch
+  currentTheme={[Function String]}
+  darkMode="false"
+  themeService={[Function ThemeService]}
+>
+  <mat-slide-toggle
+    class="theme-toggle mat-slide-toggle mat-accent"
+    id="mat-slide-toggle-2"
+    tabindex="-1"
+  >
+    <label
+      class="mat-slide-toggle-label"
+      for="mat-slide-toggle-2-input"
+    >
+      <div
+        class="mat-slide-toggle-bar"
+      >
+        <input
+          aria-checked="false"
+          class="mat-slide-toggle-input cdk-visually-hidden"
+          id="mat-slide-toggle-2-input"
+          role="switch"
+          tabindex="0"
+          type="checkbox"
+        />
+        <div
+          class="mat-slide-toggle-thumb-container"
+        >
+          <div
+            class="mat-slide-toggle-thumb"
+          />
+          <div
+            class="mat-slide-toggle-ripple mat-ripple"
+            mat-ripple=""
+          >
+            <div
+              class="mat-ripple-element mat-slide-toggle-persistent-ripple"
+            />
+          </div>
+        </div>
+      </div>
+      <span
+        class="mat-slide-toggle-content"
+      >
+        <span
+          style="display:none"
+        >
+           
+        </span>
+         Dark Theme
+  
+      </span>
+    </label>
+  </mat-slide-toggle>
+</app-theme-switch>
+`;

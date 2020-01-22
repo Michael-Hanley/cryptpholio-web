@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoinMarketComponent should match snapshot 1`] = `
+<app-coin-market
+  coinService={[Function CoinService]}
+  columnsToDisplay={[Function Array]}
+  dataSource={[Function MatTableDataSource]}
+  imageUrl={[Function String]}
+  ngUnsubscribe={[Function Subject]}
+  pageSize={[Function Number]}
+  paginator="undefined"
+  ready="false"
+  route={[Function ActivatedRoute]}
+  routeService={[Function RouteService]}
+  router={[Function Router]}
+  sort="undefined"
+>
+  <div
+    class="container"
+  >
+    <div>
+      <span
+        class="global_market_cap"
+      >
+        Global Market Cap: $
+      </span>
+      <span
+        class="search-box"
+      >
+        <mat-form-field
+          class="mat-form-field ng-tns-c8-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder"
+        >
+          <div
+            class="mat-form-field-wrapper"
+          >
+            <div
+              class="mat-form-field-flex"
+            >
+              
+              
+              <div
+                class="mat-form-field-infix"
+              >
+                <input
+                  aria-invalid="false"
+                  aria-required="false"
+                  class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored"
+                  id="mat-input-1"
+                  matinput=""
+                  placeholder="Filter"
+                  type="text"
+                />
+                <span
+                  class="mat-form-field-label-wrapper"
+                >
+                  
+                  <label
+                    aria-owns="mat-input-1"
+                    class="mat-form-field-label ng-tns-c8-0 mat-empty mat-form-field-empty ng-star-inserted"
+                    for="mat-input-1"
+                    id="mat-form-field-label-3"
+                  >
+                    
+                    
+                    Filter
+                    
+                    
+                  </label>
+                </span>
+              </div>
+              
+            </div>
+            
+            <div
+              class="mat-form-field-underline ng-tns-c8-0 ng-star-inserted"
+            >
+              <span
+                class="mat-form-field-ripple"
+              />
+            </div>
+            <div
+              class="mat-form-field-subscript-wrapper"
+            >
+              
+              
+              <div
+                class="mat-form-field-hint-wrapper ng-tns-c8-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+                style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+              >
+                
+                <div
+                  class="mat-form-field-hint-spacer"
+                />
+              </div>
+            </div>
+          </div>
+        </mat-form-field>
+      </span>
+    </div>
+    <app-market-table />
+    <div
+      fxlayout=""
+      fxlayoutalign="center center"
+    >
+      
+      <mat-spinner
+        class="spinner mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation ng-star-inserted"
+        mode="indeterminate"
+        role="progressbar"
+        style="width: 100px; height: 100px;"
+      >
+        <svg
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          style="width: 100px; height: 100px;"
+          viewBox="0 0 100 100"
+        >
+          
+          <circle
+            class="ng-star-inserted"
+            cx="50%"
+            cy="50%"
+            r="45"
+            style="animation-name: mat-progress-spinner-stroke-rotate-100; stroke-dasharray: 282.7433388230814px; stroke-width: 10%;"
+          />
+          
+        </svg>
+      </mat-spinner>
+    </div>
+    <mat-paginator
+      class="mat-paginator"
+    >
+      <div
+        class="mat-paginator-outer-container"
+      >
+        <div
+          class="mat-paginator-container"
+        >
+          
+          <div
+            class="mat-paginator-page-size ng-star-inserted"
+          >
+            <div
+              class="mat-paginator-page-size-label"
+            >
+              Items per page:
+            </div>
+            
+            <mat-form-field
+              class="mat-paginator-page-size-select mat-form-field ng-tns-c11-1 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-star-inserted"
+            >
+              <div
+                class="mat-form-field-wrapper"
+              >
+                <div
+                  class="mat-form-field-flex"
+                >
+                  
+                  
+                  <div
+                    class="mat-form-field-infix"
+                  >
+                    <mat-select
+                      aria-disabled="false"
+                      aria-invalid="false"
+                      aria-label="Items per page:"
+                      aria-multiselectable="false"
+                      aria-required="false"
+                      class="mat-select ng-tns-c12-2 mat-select-empty ng-star-inserted"
+                      id="mat-select-1"
+                      role="listbox"
+                      tabindex="0"
+                    >
+                      <div
+                        aria-hidden="true"
+                        cdk-overlay-origin=""
+                        class="mat-select-trigger"
+                      >
+                        <div
+                          class="mat-select-value"
+                        >
+                          
+                          <span
+                            class="mat-select-placeholder ng-tns-c12-2 ng-star-inserted"
+                          >
+                             
+                          </span>
+                          
+                        </div>
+                        <div
+                          class="mat-select-arrow-wrapper"
+                        >
+                          <div
+                            class="mat-select-arrow"
+                          />
+                        </div>
+                      </div>
+                      
+                    </mat-select>
+                    <span
+                      class="mat-form-field-label-wrapper"
+                    >
+                      
+                    </span>
+                  </div>
+                  
+                </div>
+                
+                <div
+                  class="mat-form-field-underline ng-tns-c11-1 ng-star-inserted"
+                >
+                  <span
+                    class="mat-form-field-ripple"
+                  />
+                </div>
+                <div
+                  class="mat-form-field-subscript-wrapper"
+                >
+                  
+                  
+                  <div
+                    class="mat-form-field-hint-wrapper ng-tns-c11-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+                    style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
+                  >
+                    
+                    <div
+                      class="mat-form-field-hint-spacer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </mat-form-field>
+            
+          </div>
+          <div
+            class="mat-paginator-range-actions"
+          >
+            <div
+              class="mat-paginator-range-label"
+            >
+              1 - 10 of 100
+            </div>
+            
+            <button
+              aria-describedby="cdk-describedby-message-2"
+              aria-label="Previous page"
+              cdk-describedby-host=""
+              class="mat-paginator-navigation-previous mat-icon-button"
+              disabled=""
+              mat-icon-button=""
+              type="button"
+            >
+              <span
+                class="mat-button-wrapper"
+              >
+                <svg
+                  class="mat-paginator-icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                </svg>
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple mat-button-ripple-round"
+                matripple=""
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </button>
+            <button
+              aria-describedby="cdk-describedby-message-3"
+              aria-label="Next page"
+              cdk-describedby-host=""
+              class="mat-paginator-navigation-next mat-icon-button"
+              mat-icon-button=""
+              type="button"
+            >
+              <span
+                class="mat-button-wrapper"
+              >
+                <svg
+                  class="mat-paginator-icon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                  />
+                </svg>
+              </span>
+              <div
+                class="mat-button-ripple mat-ripple mat-button-ripple-round"
+                matripple=""
+              />
+              <div
+                class="mat-button-focus-overlay"
+              />
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </mat-paginator>
+  </div>
+</app-coin-market>
+`;
