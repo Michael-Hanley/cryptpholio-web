@@ -1,4 +1,4 @@
-<div *ngIf="ready">
+<div>
   <div class="chartToggle">
     <mat-button-toggle-group #group="matButtonToggleGroup">
       <mat-button-toggle *ngFor="let timeline of timelineOptions" value="{{timeline}}" [checked]="timeline === currentTimeline" (click)="currentTimeline = timeline; getCoinHistory(); ready = false">
@@ -6,7 +6,7 @@
       </mat-button-toggle>
     </mat-button-toggle-group>
   </div>
-  <div [chart]="chart"></div>
+  <div *ngIf="ready" [chart]="chart"></div>
 </div>
 <div fxLayout fxLayoutAlign="center center" >
   <mat-spinner class="spinner" *ngIf="!ready">
