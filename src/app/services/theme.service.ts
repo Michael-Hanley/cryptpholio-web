@@ -22,7 +22,7 @@ export class ThemeService {
     }
   }
 
-  get themeObject() {
+  get themeObject(): Object {
     return this._themeObject.getValue();
   }
   get currentTheme() {
@@ -30,6 +30,13 @@ export class ThemeService {
   }
 
   updateThemeObject(theme) {
+    const themeObj = this.chooseTheme(theme);
+    localStorage.setItem('theme', theme);
+    this._themeObject.next(themeObj);
+    this._currentTheme.next(theme);
+  }
+
+  chooseTheme(theme) {
     const themeObj: any = {};
     if (theme === 'dark-theme') {
       themeObj.lightColor = '#C0C0C0';
@@ -38,8 +45,6 @@ export class ThemeService {
       themeObj.lightColor = '';
       themeObj.darkColor = '';
     }
-    localStorage.setItem('theme', theme);
-    this._themeObject.next(themeObj);
-    this._currentTheme.next(theme);
+    return themeObj;
   }
 }

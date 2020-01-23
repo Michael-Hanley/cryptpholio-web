@@ -9,7 +9,7 @@ export class CoinService {
   api_url = environment.api_url;
 
   constructor(private http: HttpClient) {}
-  
+
   getCoins() {
     // const url = this.api_url + '/market';
     const url = 'https://api.coinstats.app/public/v1/coins?limit=3500';
@@ -26,22 +26,26 @@ export class CoinService {
     return this.http.get(url);
   }
   getHistory(coin, timeline) {
-    let url;
-    if (timeline === '7d') {
-      url = `https://min-api.cryptocompare.com/data/histohour?fsym=${coin}&tsym=USD&limit=168&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '24h') {
-      url = `https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=1440&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '1h') {
-      url = `https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=60&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '1m') {
-      url = `https://min-api.cryptocompare.com/data/histohour?fsym=${coin}&tsym=USD&limit=720&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '6m') {
-      url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=183&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '1y') {
-      url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=365&aggregate=1&e=CCCAGG`;
-    } else if (timeline === '3y') {
-      url = `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=1095&aggregate=1&e=CCCAGG`;
-    }
+    const url = this.constructHistoryUrl(coin, timeline);
     return this.http.get(url);
+  }
+
+  constructHistoryUrl(coin, timeline) {
+    switch (timeline) {
+      case '7d':
+        return `https://min-api.cryptocompare.com/data/histohour?fsym=${coin}&tsym=USD&limit=168&aggregate=1&e=CCCAGG`;
+      case '24h':
+        return `https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=1440&aggregate=1&e=CCCAGG`;
+      case '1h':
+        return `https://min-api.cryptocompare.com/data/histominute?fsym=${coin}&tsym=USD&limit=60&aggregate=1&e=CCCAGG`;
+      case '1m':
+        return `https://min-api.cryptocompare.com/data/histohour?fsym=${coin}&tsym=USD&limit=720&aggregate=1&e=CCCAGG`;
+      case '6m':
+        return `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=183&aggregate=1&e=CCCAGG`;
+      case '1y':
+        return `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=365&aggregate=1&e=CCCAGG`;
+      case '3y':
+        return `https://min-api.cryptocompare.com/data/histoday?fsym=${coin}&tsym=USD&limit=1095&aggregate=1&e=CCCAGG`;
+    }
   }
 }
