@@ -8,6 +8,7 @@ import { MainChartComponent } from './main-chart/main-chart.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CoinComponent } from './coin.component';
+import { MatListModule } from '@angular/material';
 
 describe('CoinComponent', () => {
   let fixture: ComponentFixture<CoinComponent>;
@@ -20,6 +21,7 @@ describe('CoinComponent', () => {
       imports: [
         MatIconModule,
         MatProgressSpinnerModule,
+        MatListModule,
         RouterTestingModule,
         HttpClientTestingModule
       ]
