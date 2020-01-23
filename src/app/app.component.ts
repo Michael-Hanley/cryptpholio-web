@@ -30,7 +30,7 @@ export class AppComponent implements OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(theme => { this.currentTheme = theme; });
   }
-  ngOnDestroy(): any {
+  ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

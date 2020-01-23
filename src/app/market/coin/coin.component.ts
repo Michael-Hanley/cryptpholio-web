@@ -9,6 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { CoinService } from '../../services/coin.service';
 import { RouteService } from '../../services/route.service';
+import { NewsService } from '../../services/news.service';
 
 @Component({
   selector: 'app-coin',
@@ -19,13 +20,14 @@ export class CoinComponent implements OnInit, OnDestroy {
   coin;
   current_btc_price;
   market_cap_btc;
+  coinNews;
   imageUrl = 'https://www.cryptocompare.com';
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
     public routeService: RouteService, sanitizer: DomSanitizer, public location: Location,
-    private coinService: CoinService, private router: Router) {
+    private coinService: CoinService, private router: Router, private newsService: NewsService) {
     this.route.queryParams
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(params => {
@@ -46,11 +48,20 @@ export class CoinComponent implements OnInit, OnDestroy {
       this.coin = coin.coin;
       this.current_btc_price = this.coin.price / this.coin.priceBtc;
       this.market_cap_btc = this.coin.marketCap / this.current_btc_price;
+      this.getCoinNews(this.coin.symbol);
     });
   }
 
   backToMarker() {
     this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
+  }
+
+  getCoinNews(coin) {
+    this.newsService.getCoinNews(coin)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(res => {
+        this.coinNews = res.Data;
+      });
   }
 
   ngOnInit() {}
