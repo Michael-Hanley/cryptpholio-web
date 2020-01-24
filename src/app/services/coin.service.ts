@@ -30,6 +30,10 @@ export class CoinService {
     return this.http.get(url);
   }
 
+  calculateMarketCap(value, supply) {
+    return value * supply;
+  }
+
   constructHistoryUrl(coin, timeline) {
     switch (timeline) {
       case '7d':
