@@ -29,10 +29,6 @@ export class MainChartComponent implements OnInit, OnDestroy {
 
   constructor(private coinService: CoinService, private themeService: ThemeService) {}
 
-  onSelect(event) {
-    console.log(event);
-  }
-
   createGraph() {
     this.chart = new Chart({
       chart: {
@@ -104,25 +100,25 @@ export class MainChartComponent implements OnInit, OnDestroy {
     this.coinService.getHistory(this.symbol, this.currentTimeline)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(hist => {
-      const market_cap_usd_arr = [];
-      this.chartHistory = [];
-      this.history = hist;
-
-      this.history.Data.forEach(time => {
-        const market_cap_usd = time.high * this.supply;
-        const utcSeconds = time.time;
-        const date = new Date(0);
-
-        date.setUTCSeconds(utcSeconds);
-
-        market_cap_usd_arr.push({'y': market_cap_usd, 'x': date});
-      });
-
-      this.chartHistory = market_cap_usd_arr;
-
+      this.chartHistory = this.createGraphData(hist);
       this.createGraph();
       this.ready = true;
     });
+  }
+
+  createGraphData(history) {
+    const market_cap_usd_arr = [];
+
+    history.Data.forEach(time => {
+      const date = new Date(0);
+
+      market_cap_usd_arr.push({
+        y: this.coinService.calculateMarketCap(time.high, this.supply),
+        x: date.setUTCSeconds(time.time)
+      });
+    });
+
+    return market_cap_usd_arr;
   }
 
   ngOnInit() {
