@@ -10,7 +10,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 describe('MainChartComponent', () => {
   let component: MainChartComponent;
   let fixture: ComponentFixture<MainChartComponent>;
-
+  const history = {
+    Data: [
+      {high: 100.00, time: 1578960000},
+      {high: 200.00, time: 1578970000}
+    ]
+  };
+  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MainChartComponent ],
@@ -32,6 +38,10 @@ describe('MainChartComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should create graph data', () => {
+    component.supply = 100000;
+    expect(component.createGraphData(history)).toMatchObject([{'x': 1578960000000, 'y': 10000000}, {'x': 1578970000000, 'y': 20000000}]);
   });
   it('should match snapshot', () => {
     expect(fixture).toMatchSnapshot();
