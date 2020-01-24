@@ -248,6 +248,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
               class="mat-paginator-navigation-previous mat-icon-button"
               disabled=""
               mat-icon-button=""
+              style="user-select: none; webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
               type="button"
             >
               <span
@@ -277,6 +278,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
               cdk-describedby-host=""
               class="mat-paginator-navigation-next mat-icon-button"
               mat-icon-button=""
+              style="user-select: none; webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
               type="button"
             >
               <span

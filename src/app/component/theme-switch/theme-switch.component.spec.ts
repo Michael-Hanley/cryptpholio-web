@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ThemeSwitchComponent } from './theme-switch.component';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import 'hammerjs';
 
 describe('ThemeSwitchComponent', () => {
   let component: ThemeSwitchComponent;

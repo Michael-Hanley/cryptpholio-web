@@ -10,6 +10,7 @@ import { MarketTableComponent } from '../../market/coin-market/market-table/mark
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material';
+import 'hammerjs';
 
 describe('CoinMarketComponent', () => {
   let component: CoinMarketComponent;
