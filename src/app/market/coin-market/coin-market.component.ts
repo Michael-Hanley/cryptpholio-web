@@ -91,17 +91,21 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     }
   }
 
+  setTableSettings() {
+    this.route.queryParams
+      .subscribe(params => {
+          if (params.pageSize) {
+            this.pageIndex = params.pageIndex;
+            this.pageSize = params.pageSize;
+            this.routeService.updateMarketParams(params);
+          }
+      });
+  }
+
   ngOnInit() {
     this.getCoins();
     this.getGlobalStats();
-    this.route.queryParams.subscribe(
-      params => {
-        if (params.pageSize) {
-          this.pageIndex = params.pageIndex;
-          this.pageSize = params.pageSize;
-          this.routeService.updateMarketParams(params);
-        }
-    });
+    this.setTableSettings();
   }
 
   ngOnDestroy(): any {
