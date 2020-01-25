@@ -31,12 +31,10 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'availableSupply',
     'volume'
   ];
-  imageUrl = 'https://www.cryptocompare.com';
   dataSource = new MatTableDataSource<Coin>(this.coins);
   pageIndex;
   pageSize = 10;
-  page;
-  globalStats: any;
+  globalStats;
   ready = false;
 
   private ngUnsubscribe: Subject<any> = new Subject();
@@ -44,23 +42,10 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   constructor(private coinService: CoinService, private router: Router,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute, private routeService: RouteService) {
-    this.getCoins();
-    this.getGlobalStats();
-    iconRegistry.addSvgIcon(
-      'btc',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg'));
-
-      this.route.queryParams.subscribe(
-        params => {
-          if (!params.pageSize) {
-            this.pageSize = 10;
-          } else {
-          this.pageIndex = params.pageIndex;
-          this.pageSize = params.pageSize;
-          }
-
-          this.routeService.updateMarketParams(params);
-      });
+      iconRegistry.addSvgIcon(
+        'btc',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg')
+      );
    }
 
   applyFilter(filterValue: string) {
@@ -95,7 +80,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
 
   updateUrl(params) {
-    const queryParams = params;
+    const {previousPageIndex, ...queryParams} = params;
     this.router.navigate(['.'], { queryParams: queryParams });
     this.routeService.updateMarketParams(params);
   }
@@ -107,17 +92,20 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (this.page !== undefined) {
-      this.pageSize = this.pageIndex.pageSize;
-      this.pageIndex = this.pageIndex.pageIndex;
-    }
+    this.getCoins();
+    this.getGlobalStats();
+    this.route.queryParams.subscribe(
+      params => {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+        this.routeService.updateMarketParams(params);
+    });
   }
 
   ngOnDestroy(): any {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
 }
 export interface Coin {
   name: string;
