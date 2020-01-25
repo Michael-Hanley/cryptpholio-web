@@ -32,7 +32,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'volume'
   ];
   dataSource = new MatTableDataSource<Coin>(this.coins);
-  pageIndex;
+  pageIndex = 0;
   pageSize = 10;
   globalStats;
   ready = false;
@@ -96,9 +96,11 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     this.getGlobalStats();
     this.route.queryParams.subscribe(
       params => {
-        this.pageIndex = params.pageIndex;
-        this.pageSize = params.pageSize;
-        this.routeService.updateMarketParams(params);
+        if (params.pageSize) {
+          this.pageIndex = params.pageIndex;
+          this.pageSize = params.pageSize;
+          this.routeService.updateMarketParams(params);
+        }
     });
   }
 
