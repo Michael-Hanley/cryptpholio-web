@@ -29,15 +29,11 @@
         [supply]='coin.availableSupply'>
     </app-main-chart>
   </div>
-  <mat-list>
-    <ng-container *ngFor="let newsArticle of coinNews">
-        <mat-list-item fxLayout="row" fxLayoutAlign="start center" >
-              <span><a href={{newsArticle.url}}><img class="article-image" src="{{newsArticle.imageurl}}" /></a></span>
-              <span class="article-title">{{newsArticle.title}}</span>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-    </ng-container>
-  </mat-list>
+  <app-coin-news *ngFor="let newsArticle of coinNews"
+    [title]='newsArticle.title'
+    [imageUrl]='newsArticle.imageurl'
+    [url]='newsArticle.url'>
+</app-coin-news>
 </div>
 <div fxLayout fxLayoutAlign="center center" >
     <mat-spinner class="spinner" *ngIf="coin === undefined">

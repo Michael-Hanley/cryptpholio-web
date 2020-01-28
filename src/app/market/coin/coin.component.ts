@@ -51,17 +51,17 @@ export class CoinComponent implements OnInit, OnDestroy {
       this.getCoinNews(this.coin.symbol);
     });
   }
-
-  backToMarker() {
-    this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
-  }
-
+  
   getCoinNews(coin) {
     this.newsService.getCoinNews(coin)
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(res => {
         this.coinNews = res.Data;
       });
+  }
+
+  backToMarker() {
+    this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
   }
 
   ngOnInit() {}
