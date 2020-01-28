@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockComponent, MockedComponent, MockRender } from 'ng-mocks';
+import { MockComponent } from 'ng-mocks';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -8,7 +8,7 @@ import { MainChartComponent } from './main-chart/main-chart.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CoinComponent } from './coin.component';
-import { MatListModule } from '@angular/material';
+import { CoinNewsComponent } from './coin-news/coin-news.component';
 
 describe('CoinComponent', () => {
   let fixture: ComponentFixture<CoinComponent>;
@@ -17,11 +17,11 @@ describe('CoinComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CoinComponent,
-      MockComponent(MainChartComponent)],
+      MockComponent(MainChartComponent),
+      MockComponent(CoinNewsComponent)],
       imports: [
         MatIconModule,
         MatProgressSpinnerModule,
-        MatListModule,
         RouterTestingModule,
         HttpClientTestingModule
       ]

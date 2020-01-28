@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -21,7 +21,6 @@ export class CoinComponent implements OnInit, OnDestroy {
   current_btc_price;
   market_cap_btc;
   coinNews;
-  imageUrl = 'https://www.cryptocompare.com';
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
@@ -51,7 +50,7 @@ export class CoinComponent implements OnInit, OnDestroy {
       this.getCoinNews(this.coin.symbol);
     });
   }
-  
+
   getCoinNews(coin) {
     this.newsService.getCoinNews(coin)
       .pipe(takeUntil(this.ngUnsubscribe))

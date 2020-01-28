@@ -3,7 +3,6 @@
 exports[`CoinComponent should match snapshot 1`] = `
 <app-coin
   coinService={[Function CoinService]}
-  imageUrl={[Function String]}
   location={[Function SpyLocation]}
   newsService={[Function NewsService]}
   ngUnsubscribe={[Function Subject]}
