@@ -21,6 +21,7 @@ export class CoinComponent implements OnInit, OnDestroy {
   current_btc_price;
   market_cap_btc;
   coinNews;
+  maxArticles = 5;
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
@@ -61,6 +62,14 @@ export class CoinComponent implements OnInit, OnDestroy {
 
   backToMarker() {
     this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
+  }
+
+  maxNewsArticles(index) {
+    if (index < this.maxArticles) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   ngOnInit() {}
