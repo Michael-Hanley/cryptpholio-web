@@ -1,41 +1,42 @@
 <div class="container" *ngIf="coin !== undefined">
-    <div>
-        <button mat-button (click)="backToMarker()"><mat-icon>arrow_back</mat-icon>Back to Market</button>
-    </div>
-    <br>
+  <div>
+    <button mat-button (click)="backToMarker()">
+      <mat-icon>arrow_back</mat-icon>Back to Market
+    </button>
+  </div>
+  <br>
   <div class="coinInfo">
     <span class="logo"><img src="{{coin.icon}}" width="67" height="67"></span>
     <div>
-        <div class="nameSymbol">
-            <span>{{coin.name}}</span>
-            <span>({{coin.symbol}})</span>
+      <div class="nameSymbol">
+        <span>{{coin.name}}</span>
+        <span>({{coin.symbol}})</span>
+      </div>
+      <div class="marketPrice">
+        <div>{{coin.price | currency}}</div>
+        <div>
+          <mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.priceBtc | number:'.2-9'}}
         </div>
-        <div class="marketPrice">
-            <div>{{coin.price | currency}}</div>
-            <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{coin.priceBtc | number:'.2-9'}}</div>
-        </div>
+      </div>
     </div>
     <div class='marketCap'>
-        <div>Market Cap</div>
-        <div>${{coin.marketCap | number: '1.0-0'}}</div>
-        <div><mat-icon class="icon" svgIcon="btc"></mat-icon>{{market_cap_btc  | number: '1.0-0'}}</div>
+      <div>Market Cap</div>
+      <div>${{coin.marketCap | number: '1.0-0'}}</div>
+      <div>
+        <mat-icon class="icon" svgIcon="btc"></mat-icon>{{market_cap_btc | number: '1.0-0'}}
+      </div>
     </div>
   </div>
   <br>
   <div class='chart'>
-    <app-main-chart
-        [name]='coin.name'
-        [symbol]='coin.symbol'
-        [supply]='coin.availableSupply'>
+    <app-main-chart [name]='coin.name' [symbol]='coin.symbol' [supply]='coin.availableSupply'>
     </app-main-chart>
   </div>
-  <app-coin-news *ngFor="let newsArticle of coinNews"
-    [title]='newsArticle.title'
-    [imageUrl]='newsArticle.imageurl'
+  <app-coin-news *ngFor="let newsArticle of coinNews" [title]='newsArticle.title' [imageUrl]='newsArticle.imageurl'
     [url]='newsArticle.url'>
-</app-coin-news>
+  </app-coin-news>
 </div>
-<div fxLayout fxLayoutAlign="center center" >
-    <mat-spinner class="spinner" *ngIf="coin === undefined">
-    </mat-spinner>
+<div fxLayout fxLayoutAlign="center center">
+  <mat-spinner class="spinner" *ngIf="coin === undefined">
+  </mat-spinner>
 </div>

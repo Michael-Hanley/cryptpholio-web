@@ -1,14 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MockComponent, MockedComponent, MockRender } from 'ng-mocks';
-import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
-import { MainChartComponent } from './main-chart/main-chart.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { MockComponent } from 'ng-mocks';
+import { CoinNewsComponent } from './coin-news/coin-news.component';
 import { CoinComponent } from './coin.component';
-import { MatListModule } from '@angular/material';
+import { MainChartComponent } from './main-chart/main-chart.component';
+
+let testProps = {
+  coinNews: [{
+    title: 'test-title',
+    imageurl: 'test-image-url',
+    url: 'test-url'
+  }, {
+    title: 'test-title-1',
+    imageurl: 'test-image-url-1',
+    url: 'test-url-1'
+  }]
+}
 
 describe('CoinComponent', () => {
   let fixture: ComponentFixture<CoinComponent>;
@@ -16,22 +26,23 @@ describe('CoinComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoinComponent,
-      MockComponent(MainChartComponent)],
+      declarations: [CoinComponent,
+        MockComponent(CoinNewsComponent),
+        MockComponent(MainChartComponent)],
       imports: [
         MatIconModule,
         MatProgressSpinnerModule,
-        MatListModule,
         RouterTestingModule,
         HttpClientTestingModule
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CoinComponent);
     component = fixture.componentInstance;
+    component.coinNews = testProps.coinNews;
     fixture.detectChanges();
   });
 

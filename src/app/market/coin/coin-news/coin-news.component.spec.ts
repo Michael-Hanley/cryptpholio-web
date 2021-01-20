@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatListModule } from '@angular/material';
 import { CoinNewsComponent } from './coin-news.component';
 
 describe('CoinNewsComponent', () => {
@@ -8,9 +8,12 @@ describe('CoinNewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoinNewsComponent ]
+      declarations: [CoinNewsComponent],
+      imports: [
+        MatListModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +24,8 @@ describe('CoinNewsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should match snapshot', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });

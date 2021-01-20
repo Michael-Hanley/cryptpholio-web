@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoinNewsComponent should match snapshot 1`] = `
+<app-coin-news>
+  <mat-list-item
+    class="mat-list-item"
+  >
+    <div
+      class="mat-list-item-content"
+    >
+      <div
+        class="mat-list-item-ripple mat-ripple"
+        mat-ripple=""
+      />
+      <div
+        class="mat-list-text"
+      />
+      <a
+        href=""
+      >
+        <div
+          class="list-item"
+        >
+          <span>
+            <img
+              class="article-image"
+              src=""
+            />
+          </span>
+          <span
+            class="article-title"
+          >
+            
+          </span>
+        </div>
+      </a>
+    </div>
+  </mat-list-item><mat-divider
+    aria-orientation="horizontal"
+    class="mat-divider mat-divider-horizontal"
+    role="separator"
+  />
+</app-coin-news>
+`;
