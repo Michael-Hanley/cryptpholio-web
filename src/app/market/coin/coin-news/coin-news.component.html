@@ -1,5 +1,9 @@
-<mat-list-item fxLayout="row" fxLayoutAlign="start center" >
-        <span><a href={{url}}><img class="article-image" src="{{imageUrl}}" /></a></span>
-        <span class="article-title">{{title}}</span>
+<mat-list-item>
+    <a href={{url}}>
+        <div class="list-item">
+            <span><img class="article-image" src="{{imageUrl}}" /></span>
+            <span class="article-title">{{title}}</span>
+        </div>
+    </a>
 </mat-list-item>
 <mat-divider></mat-divider>
