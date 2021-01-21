@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     MatButtonToggleModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    MatListModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

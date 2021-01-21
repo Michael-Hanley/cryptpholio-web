@@ -4,26 +4,34 @@
     height: 100vh;
     justify-content: center;
 }
-.coinInfo {
-  display: flex;
-  flex-direction: row;
+.coinInfoRow {
+    display: flex;
+    flex-direction: row;
+    h2 {
+        margin: 0;
+    }
 }
 .logo {
-    margin: 10px;
-}
-.nameSymbol {
-    margin-top: 15px;
+    margin: 10px 20px 0px 25px;
 }
 .marketPrice {
     margin-right: 10px;
-
 }
 .marketCap {
-    margin-top: 15px;
+    margin-top: 28px;
     margin-right: 20px;
     margin-left: auto;
 }
 .icon {
     width: 12px;
     height: 12px;
+}
+.coinNews {
+    margin: 15px 0px;
+    padding-bottom: 15px;
+    background-color: rgb(66, 66, 66);
+}
+.coinNewsTitle {
+    padding-top: 25px;
+    padding-left: 25px;
 }
