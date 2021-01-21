@@ -24,6 +24,7 @@ import { MarketTableComponent } from './market/coin-market/market-table/market-t
 import { CoinNewsComponent } from './market/coin/coin-news/coin-news.component';
 import { CoinComponent } from './market/coin/coin.component';
 import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'market', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
     ),
+    ScrollingModule,
     ChartModule,
     MatToolbarModule,
     MatTableModule,

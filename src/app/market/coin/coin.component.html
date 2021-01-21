@@ -32,9 +32,11 @@
     <app-main-chart [name]='coin.name' [symbol]='coin.symbol' [supply]='coin.availableSupply'>
     </app-main-chart>
   </div>
-  <app-coin-news *ngFor="let newsArticle of coinNews" [title]='newsArticle.title' [imageUrl]='newsArticle.imageurl'
-    [url]='newsArticle.url'>
-  </app-coin-news>
+  <cdk-virtual-scroll-viewport itemSize="18" style="height:30vh">
+    <app-coin-news *cdkVirtualFor="let newsArticle of coinNews" [title]='newsArticle.title' [imageUrl]='newsArticle.imageurl'
+      [url]='newsArticle.url'>
+    </app-coin-news>
+  </cdk-virtual-scroll-viewport>
 </div>
 <div fxLayout fxLayoutAlign="center center">
   <mat-spinner class="spinner" *ngIf="coin === undefined">
