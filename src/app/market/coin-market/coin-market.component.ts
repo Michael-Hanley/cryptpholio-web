@@ -10,6 +10,24 @@ import { takeUntil } from 'rxjs/operators';
 import { CoinService } from '../../services/coin.service';
 import { RouteService } from '../../services/route.service';
 
+export interface Coin {
+  name: string;
+  symbol: number;
+  priceBtc: number;
+  price: number;
+  marketCap: number;
+  priceChange1h: number;
+  priceChange1d: number;
+  priceChange1w: number;
+  icon: string;
+  availableSupply: number;
+  totalSupply: number;
+}
+
+type Coins = {
+  coins?: Coin[]
+}
+
 @Component({
   selector: 'app-coin-market',
   templateUrl: './coin-market.component.html',
@@ -18,7 +36,7 @@ import { RouteService } from '../../services/route.service';
 export class CoinMarketComponent implements OnInit, OnDestroy {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  coins;
+  coins: Coins = {};
   timer;
   columnsToDisplay = [
     'icon',
@@ -31,7 +49,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'availableSupply',
     'volume'
   ];
-  dataSource = new MatTableDataSource<Coin>(this.coins);
+  dataSource = new MatTableDataSource<Coin>(this.coins.coins);
   pageIndex = 0;
   pageSize = 10;
   globalStats;
@@ -42,11 +60,11 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   constructor(private coinService: CoinService, private router: Router,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
     private route: ActivatedRoute, private routeService: RouteService) {
-      iconRegistry.addSvgIcon(
-        'btc',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg')
-      );
-   }
+    iconRegistry.addSvgIcon(
+      'btc',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/btc.svg')
+    );
+  }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -57,7 +75,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   getCoins() {
     this.coinService.getCoins()
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(coins => {
+      .subscribe((coins: Coins) => {
         if (!coins) { return; }
         this.coins = coins;
         this.dataSource = new MatTableDataSource<Coin>(this.coins.coins);
@@ -80,7 +98,7 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   }
 
   updateUrl(params) {
-    const {previousPageIndex, ...queryParams} = params;
+    const { previousPageIndex, ...queryParams } = params;
     this.router.navigate(['.'], { queryParams: queryParams });
     this.routeService.updateMarketParams(params);
   }
@@ -94,11 +112,11 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
   setTableSettings() {
     this.route.queryParams
       .subscribe(params => {
-          if (params.pageSize) {
-            this.pageIndex = params.pageIndex;
-            this.pageSize = params.pageSize;
-            this.routeService.updateMarketParams(params);
-          }
+        if (params.pageSize) {
+          this.pageIndex = params.pageIndex;
+          this.pageSize = params.pageSize;
+          this.routeService.updateMarketParams(params);
+        }
       });
   }
 
@@ -112,17 +130,4 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-}
-export interface Coin {
-  name: string;
-  symbol: number;
-  priceBtc: number;
-  price: number;
-  marketCap: number;
-  priceChange1h: number;
-  priceChange1d: number;
-  priceChange1w: number;
-  icon: string;
-  availableSupply: number;
-  totalSupply: number;
 }

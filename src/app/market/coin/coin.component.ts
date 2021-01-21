@@ -8,6 +8,38 @@ import { takeUntil } from 'rxjs/operators';
 import { CoinService } from '../../services/coin.service';
 import { NewsService } from '../../services/news.service';
 import { RouteService } from '../../services/route.service';
+import { Coin } from '../coin-market/coin-market.component';
+
+type CoinDetailsReply = {
+  coin: Coin
+}
+
+type SourceInfo = {
+  name: String
+  lang: String
+  img: String
+}
+
+type CoinNews = {
+  body: String
+  categories: String
+  downvotes: String
+  guid: String
+  id: String
+  imageurl: String
+  lang: String
+  published_on: Number
+  source: String
+  source_info: SourceInfo
+  tags: String
+  title: String
+  upvotes: String
+  url: String
+}
+
+type CoinNewsReply = {
+  Data: CoinNews[]
+}
 
 @Component({
   selector: 'app-coin',
@@ -40,7 +72,7 @@ export class CoinComponent implements OnInit, OnDestroy {
   getCoinDetails(coinId) {
     this.coinService.getCoinDetail(coinId)
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(coin => {
+      .subscribe((coin: CoinDetailsReply) => {
         if (!coin) { return; }
         this.coin = coin.coin;
         this.current_btc_price = this.coin.price / this.coin.priceBtc;
@@ -52,7 +84,7 @@ export class CoinComponent implements OnInit, OnDestroy {
   getCoinNews(coin) {
     this.newsService.getCoinNews(coin)
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(res => {
+      .subscribe((res: CoinNewsReply) => {
         this.coinNews = res.Data;
       });
   }
