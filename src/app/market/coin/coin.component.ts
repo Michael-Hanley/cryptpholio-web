@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { ThemeService } from '../../services/theme.service';
 import { CoinService } from '../../services/coin.service';
 import { NewsService } from '../../services/news.service';
 import { RouteService } from '../../services/route.service';
@@ -47,17 +48,19 @@ type CoinNewsReply = {
   styleUrls: ['./coin.component.scss']
 })
 export class CoinComponent implements OnInit, OnDestroy {
-  coin;
+  coin: Coin;
   current_btc_price;
   market_cap_btc;
   coinNews;
+  theme;
   imageUrl = 'https://www.cryptocompare.com';
 
   private ngUnsubscribe: Subject<any> = new Subject();
 
   constructor(private route: ActivatedRoute, iconRegistry: MatIconRegistry,
     public routeService: RouteService, sanitizer: DomSanitizer, public location: Location,
-    private coinService: CoinService, private router: Router, private newsService: NewsService) {
+    private coinService: CoinService, private router: Router, private newsService: NewsService,
+    private themeService: ThemeService) {
     this.route.queryParams
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(params => {
@@ -93,7 +96,14 @@ export class CoinComponent implements OnInit, OnDestroy {
     this.router.navigate(['/market'], { queryParams: this.routeService.marketParams });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.themeService._themeObject$
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(theme => {
+        console.log(theme);
+        this.theme = theme;
+      });
+  }
   ngOnDestroy(): any {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
