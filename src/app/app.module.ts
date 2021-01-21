@@ -1,10 +1,11 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -24,7 +25,6 @@ import { MarketTableComponent } from './market/coin-market/market-table/market-t
 import { CoinNewsComponent } from './market/coin/coin-news/coin-news.component';
 import { CoinComponent } from './market/coin/coin.component';
 import { MainChartComponent } from './market/coin/main-chart/main-chart.component';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'market', pathMatch: 'full' },
