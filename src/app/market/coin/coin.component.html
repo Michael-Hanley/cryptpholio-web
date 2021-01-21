@@ -36,11 +36,15 @@
     <h2 class="coinNewsTitle">
       Latest News
     </h2>
-    <cdk-virtual-scroll-viewport itemSize="20" style="height:30vh">
+    <cdk-virtual-scroll-viewport *ngIf="coinNews !== undefined" itemSize="20" style="height:30vh">
       <app-coin-news *cdkVirtualFor="let newsArticle of coinNews" [title]='newsArticle.title'
         [imageUrl]='newsArticle.imageurl' [url]='newsArticle.url'>
       </app-coin-news>
     </cdk-virtual-scroll-viewport>
+    <div fxLayout fxLayoutAlign="center center">
+      <mat-spinner class="spinner" *ngIf="coinNews === undefined">
+      </mat-spinner>
+    </div>
   </div>
   <div style="height: 50px"></div>
 </div>
