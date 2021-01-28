@@ -1,15 +1,7 @@
-<div [ngClass]="['container', currentTheme]">
-  <mat-drawer-container class="sideNav_container"
-    (backdropClick)="isCollapsed = !isCollapsed">
-    <mat-drawer #drawer mode="over">
-      <p>Auto-resizing sidenav</p>
-    </mat-drawer>
-
-    <div class="sidenav-content">
-      <div class="routeContainer mat-elevation-z5">
-          <app-theme-switch></app-theme-switch>
-          <router-outlet></router-outlet>    
-      </div>
-    </div>
-  </mat-drawer-container>
-</div>  
+<div [ngClass]="[currentTheme]">
+  <div class="routeContainer mat-elevation-z5">
+    <app-ticker-scroller></app-ticker-scroller>
+    <app-theme-switch></app-theme-switch>
+    <router-outlet></router-outlet>
+  </div>
+</div>

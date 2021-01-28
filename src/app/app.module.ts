@@ -9,17 +9,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartModule } from 'angular-highcharts';
 import { AppComponent } from './app.component';
-import { ThemeSwitchComponent } from './component/theme-switch/theme-switch.component';
+import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import { CoinMarketComponent } from './market/coin-market/coin-market.component';
 import { MarketTableComponent } from './market/coin-market/market-table/market-table.component';
 import { CoinNewsComponent } from './market/coin/coin-news/coin-news.component';
@@ -53,7 +51,6 @@ const appRoutes: Routes = [
     ),
     ScrollingModule,
     ChartModule,
-    MatToolbarModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -62,7 +59,6 @@ const appRoutes: Routes = [
     MatIconModule,
     MatProgressSpinnerModule,
     MatButtonToggleModule,
-    MatSidenavModule,
     MatSlideToggleModule,
     MatListModule
   ],

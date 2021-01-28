@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { ThemeSwitchComponent } from './component/theme-switch/theme-switch.component';
+import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
