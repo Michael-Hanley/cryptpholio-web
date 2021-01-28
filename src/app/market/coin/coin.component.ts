@@ -100,7 +100,6 @@ export class CoinComponent implements OnInit, OnDestroy {
     this.themeService._themeObject$
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe(theme => {
-        console.log(theme);
         this.theme = theme;
       });
   }

@@ -11,6 +11,8 @@ exports[`CoinComponent should match snapshot 1`] = `
   route={[Function ActivatedRoute]}
   routeService={[Function RouteService]}
   router={[Function Router]}
+  theme={[Function Object]}
+  themeService={[Function ThemeService]}
 >
   <div
     fxlayout=""

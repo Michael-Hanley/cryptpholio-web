@@ -7,6 +7,7 @@ import { MockComponent } from 'ng-mocks';
 import { CoinNewsComponent } from './coin-news/coin-news.component';
 import { CoinComponent } from './coin.component';
 import { MainChartComponent } from './main-chart/main-chart.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 let testProps = {
   coinNews: [{
@@ -32,6 +33,7 @@ describe('CoinComponent', () => {
       imports: [
         MatIconModule,
         MatProgressSpinnerModule,
+        ScrollingModule,
         RouterTestingModule,
         HttpClientTestingModule
       ]

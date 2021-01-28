@@ -7,21 +7,21 @@ exports[`AppComponent should match snapshot 1`] = `
   themeService={[Function ThemeService]}
 >
   <div
-    class="ng-tns-c3-0 container light-theme"
+    class="container light-theme"
   >
     <mat-drawer-container
       class="sideNav_container mat-drawer-container"
     >
       
       <div
-        class="mat-drawer-backdrop ng-star-inserted"
+        class="mat-drawer-backdrop"
       />
       <div
         aria-hidden="true"
         class="cdk-visually-hidden cdk-focus-trap-anchor"
       />
       <mat-drawer
-        class="mat-drawer ng-tns-c5-1 ng-trigger ng-trigger-transform ng-tns-c3-0 mat-drawer-over ng-star-inserted"
+        class="mat-drawer ng-trigger ng-trigger-transform mat-drawer-over"
         mode="over"
         style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
         tabindex="-1"
@@ -29,14 +29,10 @@ exports[`AppComponent should match snapshot 1`] = `
         <div
           class="mat-drawer-inner-container"
         >
-          <p
-            class="ng-tns-c3-0"
-          >
+          <p>
             Auto-resizing sidenav
           </p>
-          <button
-            class="ng-tns-c3-0"
-          >
+          <button>
             Market
           </button>
         </div>
@@ -47,20 +43,16 @@ exports[`AppComponent should match snapshot 1`] = `
       />
       
       <mat-drawer-content
-        class="mat-drawer-content ng-star-inserted"
+        class="mat-drawer-content"
       >
         <div
-          class="sidenav-content ng-tns-c3-0"
+          class="sidenav-content"
         >
           <div
             class="routeContainer mat-elevation-z5"
           >
-            <app-theme-switch
-              class="ng-tns-c3-0"
-            />
-            <router-outlet
-              class="ng-tns-c3-0"
-            />
+            <app-theme-switch />
+            <router-outlet />
           </div>
         </div>
       </mat-drawer-content>

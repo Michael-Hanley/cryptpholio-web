@@ -3,12 +3,13 @@
 exports[`CoinMarketComponent should match snapshot 1`] = `
 <app-coin-market
   coinService={[Function CoinService]}
+  coins={[Function Object]}
   columnsToDisplay={[Function Array]}
   dataSource={[Function MatTableDataSource]}
   ngUnsubscribe={[Function Subject]}
   pageIndex="0"
   pageSize={[Function Number]}
-  paginator="undefined"
+  paginator={[Function MatPaginator]}
   ready="false"
   route={[Function ActivatedRoute]}
   routeService={[Function RouteService]}
@@ -28,7 +29,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
         class="search-box"
       >
         <mat-form-field
-          class="mat-form-field ng-tns-c8-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder"
+          class="mat-form-field mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder"
         >
           <div
             class="mat-form-field-wrapper"
@@ -45,7 +46,6 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                   aria-invalid="false"
                   aria-required="false"
                   class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored"
-                  id="mat-input-1"
                   matinput=""
                   placeholder="Filter"
                   type="text"
@@ -55,14 +55,13 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                 >
                   
                   <label
-                    aria-owns="mat-input-1"
-                    class="mat-form-field-label ng-tns-c8-0 mat-empty mat-form-field-empty ng-star-inserted"
-                    for="mat-input-1"
-                    id="mat-form-field-label-3"
+                    class="mat-form-field-label mat-empty mat-form-field-empty"
                   >
                     
                     
-                    Filter
+                    <span>
+                      Filter
+                    </span>
                     
                     
                   </label>
@@ -72,7 +71,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
             </div>
             
             <div
-              class="mat-form-field-underline ng-tns-c8-0 ng-star-inserted"
+              class="mat-form-field-underline"
             >
               <span
                 class="mat-form-field-ripple"
@@ -84,7 +83,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
               
               
               <div
-                class="mat-form-field-hint-wrapper ng-tns-c8-0 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+                class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages"
                 style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
               >
                 
@@ -104,7 +103,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
     >
       
       <mat-spinner
-        class="spinner mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation ng-star-inserted"
+        class="spinner mat-spinner mat-progress-spinner mat-primary mat-progress-spinner-indeterminate-animation"
         mode="indeterminate"
         role="progressbar"
         style="width: 100px; height: 100px;"
@@ -117,7 +116,6 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
         >
           
           <circle
-            class="ng-star-inserted"
             cx="50%"
             cy="50%"
             r="45"
@@ -138,16 +136,16 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
         >
           
           <div
-            class="mat-paginator-page-size ng-star-inserted"
+            class="mat-paginator-page-size"
           >
             <div
               class="mat-paginator-page-size-label"
             >
-              Items per page:
+               Items per page: 
             </div>
             
             <mat-form-field
-              class="mat-paginator-page-size-select mat-form-field ng-tns-c11-1 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder ng-star-inserted"
+              class="mat-paginator-page-size-select mat-form-field mat-primary mat-form-field-type-mat-select mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-hide-placeholder"
             >
               <div
                 class="mat-form-field-wrapper"
@@ -166,8 +164,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                       aria-label="Items per page:"
                       aria-multiselectable="false"
                       aria-required="false"
-                      class="mat-select ng-tns-c12-2 mat-select-empty ng-star-inserted"
-                      id="mat-select-1"
+                      class="mat-select mat-select-empty"
                       role="listbox"
                       tabindex="0"
                     >
@@ -181,7 +178,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                         >
                           
                           <span
-                            class="mat-select-placeholder ng-tns-c12-2 ng-star-inserted"
+                            class="mat-select-placeholder"
                           >
                              
                           </span>
@@ -207,7 +204,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                 </div>
                 
                 <div
-                  class="mat-form-field-underline ng-tns-c11-1 ng-star-inserted"
+                  class="mat-form-field-underline"
                 >
                   <span
                     class="mat-form-field-ripple"
@@ -219,7 +216,7 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
                   
                   
                   <div
-                    class="mat-form-field-hint-wrapper ng-tns-c11-1 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
+                    class="mat-form-field-hint-wrapper ng-trigger ng-trigger-transitionMessages"
                     style="opacity:1;transform:translateY(0%);0:opacity;1:transform;"
                   >
                     
@@ -238,17 +235,14 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
             <div
               class="mat-paginator-range-label"
             >
-              1 - 10 of 100
+               1 – 10 of 100 
             </div>
             
             <button
-              aria-describedby="cdk-describedby-message-2"
               aria-label="Previous page"
-              cdk-describedby-host=""
-              class="mat-paginator-navigation-previous mat-icon-button"
-              disabled=""
+              class="mat-paginator-navigation-previous mat-focus-indicator mat-icon-button mat-button-base"
+              disabled="true"
               mat-icon-button=""
-              style="user-select: none; webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
               type="button"
             >
               <span
@@ -273,12 +267,9 @@ exports[`CoinMarketComponent should match snapshot 1`] = `
               />
             </button>
             <button
-              aria-describedby="cdk-describedby-message-3"
               aria-label="Next page"
-              cdk-describedby-host=""
-              class="mat-paginator-navigation-next mat-icon-button"
+              class="mat-paginator-navigation-next mat-focus-indicator mat-icon-button mat-button-base"
               mat-icon-button=""
-              style="user-select: none; webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
               type="button"
             >
               <span
