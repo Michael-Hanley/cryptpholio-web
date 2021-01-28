@@ -49,7 +49,8 @@ export class CoinMarketComponent implements OnInit, OnDestroy {
     'marketCap',
     'priceChange1d',
     'availableSupply',
-    'volume'
+    'volume',
+    'priceGraph'
   ];
   dataSource = new MatTableDataSource<Coin>(this.coins.coins);
   pageIndex = 0;

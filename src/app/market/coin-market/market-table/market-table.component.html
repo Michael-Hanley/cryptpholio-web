@@ -44,6 +44,11 @@
         <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'>{{coin.volume}}</mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="priceGraph">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price Graph (7D) </mat-header-cell>
+        <mat-cell class="column" *matCellDef="let coin" (click)='coinView(coin)'><img src="https://static.coinstats.app/sparks/{{coin.id.toLowerCase()}}_1w.png"></mat-cell>
+      </ng-container>
+
     <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
     <mat-row *matRowDef="let coins; columns: columnsToDisplay"></mat-row>
   </mat-table>
