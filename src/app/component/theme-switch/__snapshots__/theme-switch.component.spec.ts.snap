@@ -8,7 +8,6 @@ exports[`ThemeSwitchComponent should match snapshot 1`] = `
 >
   <mat-slide-toggle
     class="theme-toggle mat-slide-toggle mat-accent"
-    id="mat-slide-toggle-2"
     tabindex="-1"
   >
     <label
@@ -28,13 +27,12 @@ exports[`ThemeSwitchComponent should match snapshot 1`] = `
         />
         <div
           class="mat-slide-toggle-thumb-container"
-          style="user-select: none; webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
         >
           <div
             class="mat-slide-toggle-thumb"
           />
           <div
-            class="mat-slide-toggle-ripple mat-ripple"
+            class="mat-slide-toggle-ripple mat-focus-indicator mat-ripple"
             mat-ripple=""
           >
             <div

@@ -23,12 +23,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-17"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-17-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -50,12 +49,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-18"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-18-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -77,12 +75,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-19"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-19-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -104,12 +101,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-20"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-20-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -131,12 +127,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-21"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-21-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -158,12 +153,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-22"
           tabindex="-1"
         >
           <button
             aria-pressed="false"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-22-button"
             name="mat-button-toggle-group-16"
             tabindex="0"
@@ -185,12 +179,11 @@ exports[`MainChartComponent should match snapshot 1`] = `
         </mat-button-toggle>
         <mat-button-toggle
           class="mat-button-toggle mat-button-toggle-checked mat-button-toggle-appearance-standard"
-          id="mat-button-toggle-23"
           tabindex="-1"
         >
           <button
             aria-pressed="true"
-            class="mat-button-toggle-button"
+            class="mat-button-toggle-button mat-focus-indicator"
             id="mat-button-toggle-23-button"
             name="mat-button-toggle-group-16"
             tabindex="0"

@@ -3,7 +3,7 @@
 exports[`CoinNewsComponent should match snapshot 1`] = `
 <app-coin-news>
   <mat-list-item
-    class="mat-list-item"
+    class="mat-list-item mat-focus-indicator"
   >
     <div
       class="mat-list-item-content"
