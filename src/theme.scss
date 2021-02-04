@@ -9,6 +9,19 @@ $dark-warn: mat-palette($mat-deep-orange);
 
 $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #D3D3D3D3;
+  border-radius: 20px;
+}
+
 .dark-theme {
   @include angular-material-theme($dark-theme);
   a {
